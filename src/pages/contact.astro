@@ -5,8 +5,7 @@ const CALENDLY_URL = 'https://calendly.com/derek-beitz-soloex/30min';
 const LINKEDIN_URL = 'https://www.linkedin.com/company/soloex-io/';
 const UPWORK_URL = 'https://www.upwork.com/freelancers/~01a68484f6725225f8';
 
-// Replace this with your real Web3Forms access key (free at web3forms.com). See TODO.md.
-const WEB3FORMS_ACCESS_KEY = 'YOUR_WEB3FORMS_ACCESS_KEY';
+const WEB3FORMS_ACCESS_KEY = '2ba36613-31a0-4e13-9bcd-7f15de4edba2';
 
 const pageDesc = "Tell us what's broken. Free 30-minute call. No pressure. Just a conversation about your CRM, your team, and whether Soloex is the right fit.";
 ---
@@ -51,40 +50,53 @@ const pageDesc = "Tell us what's broken. Free 30-minute call. No pressure. Just 
         </div>
 
         <div class="contact-col contact-form-col">
-          <div class="card form-card">
-            <h2 class="sub-h2">Or drop us a note</h2>
-            <p class="muted-note">Fill this out and we'll reply within one business day.</p>
+          <div class="card form-card" id="form-card">
+            <div class="form-wrap" id="form-wrap">
+              <h2 class="sub-h2">Or drop us a note</h2>
+              <p class="muted-note">Fill this out and we'll reply within one business day.</p>
 
-            <form action="https://api.web3forms.com/submit" method="POST" class="form" id="contact-form">
-              <input type="hidden" name="access_key" value={WEB3FORMS_ACCESS_KEY} />
-              <input type="hidden" name="subject" value="New Soloex.io contact form submission" />
-              <input type="hidden" name="from_name" value="Soloex.io contact form" />
-              <input type="checkbox" name="botcheck" class="hidden-field" tabindex="-1" autocomplete="off" aria-hidden="true" />
+              <form action="https://api.web3forms.com/submit" method="POST" class="form" id="contact-form">
+                <input type="hidden" name="access_key" value={WEB3FORMS_ACCESS_KEY} />
+                <input type="hidden" name="subject" id="subject-field" value="New Soloex contact form submission" />
+                <input type="hidden" name="from_name" value="Soloex.io contact form" />
+                <input type="checkbox" name="botcheck" class="hidden-field" tabindex="-1" autocomplete="off" aria-hidden="true" />
 
-              <div class="form-row">
-                <label for="name">Name <span aria-hidden="true">*</span></label>
-                <input id="name" name="name" type="text" required autocomplete="name" />
+                <div class="form-row">
+                  <label for="name">Name <span aria-hidden="true">*</span></label>
+                  <input id="name" name="name" type="text" required autocomplete="name" />
+                </div>
+
+                <div class="form-row">
+                  <label for="email">Email <span aria-hidden="true">*</span></label>
+                  <input id="email" name="email" type="email" required autocomplete="email" />
+                </div>
+
+                <div class="form-row">
+                  <label for="company">Company</label>
+                  <input id="company" name="company" type="text" autocomplete="organization" />
+                </div>
+
+                <div class="form-row">
+                  <label for="message">What's broken? <span aria-hidden="true">*</span></label>
+                  <textarea id="message" name="message" required rows="5"></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-large form-submit" id="submit-btn">Send →</button>
+                <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+                <p class="form-privacy">By submitting, you agree to our <a href="/privacy">privacy policy</a>. We'll only use your information to reply to you.</p>
+              </form>
+            </div>
+
+            <div class="form-success" id="form-success" role="status" aria-live="polite" hidden tabindex="-1">
+              <div class="form-success-mark" aria-hidden="true">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="4 12 10 18 20 6"></polyline>
+                </svg>
               </div>
-
-              <div class="form-row">
-                <label for="email">Email <span aria-hidden="true">*</span></label>
-                <input id="email" name="email" type="email" required autocomplete="email" />
-              </div>
-
-              <div class="form-row">
-                <label for="company">Company</label>
-                <input id="company" name="company" type="text" autocomplete="organization" />
-              </div>
-
-              <div class="form-row">
-                <label for="message">What's broken? <span aria-hidden="true">*</span></label>
-                <textarea id="message" name="message" required rows="5"></textarea>
-              </div>
-
-              <button type="submit" class="btn btn-primary btn-large form-submit">Send →</button>
-              <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
-              <p class="form-privacy">By submitting, you agree to our <a href="/privacy">privacy policy</a>. We'll only use your information to reply to you.</p>
-            </form>
+              <h2 class="sub-h2">Message sent.</h2>
+              <p>Thanks, we'll be in touch within one business day.</p>
+              <p class="muted-note">Prefer to book directly? <a href={CALENDLY_URL} target="_blank" rel="noopener">Grab a time on the calendar →</a></p>
+            </div>
           </div>
         </div>
 
@@ -157,11 +169,50 @@ const pageDesc = "Tell us what's broken. Free 30-minute call. No pressure. Just 
   .form { display: flex; flex-direction: column; gap: 14px; margin-top: 14px; }
   .form-row { display: flex; flex-direction: column; gap: 6px; }
   .form-submit { align-self: flex-start; margin-top: 6px; }
+  .form-submit[disabled] {
+    opacity: 0.65;
+    cursor: not-allowed;
+  }
   .form-status { font-size: 14px; margin-top: 8px; min-height: 1.2em; }
-  .form-status.is-success { color: var(--color-ink-700); font-weight: 500; }
-  .form-status.is-error { color: #B42318; }
+  .form-status.is-sending { color: var(--color-text-secondary); }
+  .form-status.is-error {
+    color: #B42318;
+    background: rgba(180, 35, 24, 0.06);
+    border: 1px solid rgba(180, 35, 24, 0.2);
+    padding: 10px 12px;
+    border-radius: 6px;
+    margin-top: 12px;
+  }
   .form-privacy { font-size: 12px; color: var(--color-text-tertiary); margin-top: 8px; }
   .form-privacy a { color: var(--color-text-secondary); text-decoration: underline; }
+
+  .form-success {
+    text-align: center;
+    padding: 24px 8px;
+  }
+  .form-success:focus { outline: none; }
+  .form-success-mark {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--color-ink-700);
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 18px;
+  }
+  .form-success h2 { margin-bottom: 10px; }
+  .form-success p {
+    color: var(--color-text-secondary);
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+  .form-success .muted-note { margin-top: 14px; }
+  .form-success .muted-note a {
+    color: var(--color-ink-700);
+    font-weight: 500;
+  }
 
   .hidden-field {
     position: absolute;
@@ -180,25 +231,50 @@ const pageDesc = "Tell us what's broken. Free 30-minute call. No pressure. Just 
 <script>
   const form = document.getElementById('contact-form') as HTMLFormElement | null;
   const status = document.getElementById('form-status');
-  if (form && status) {
+  const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement | null;
+  const formWrap = document.getElementById('form-wrap');
+  const successPanel = document.getElementById('form-success');
+  const subjectField = document.getElementById('subject-field') as HTMLInputElement | null;
+
+  if (form && status && submitBtn && formWrap && successPanel) {
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      status.className = 'form-status';
-      status.textContent = 'Sending…';
+
       const data = new FormData(form);
+      const rawName = (data.get('name') || '').toString().trim();
+      const nameForSubject = rawName || 'a visitor';
+      const dynamicSubject = `New Soloex contact form submission from ${nameForSubject}`;
+      data.set('subject', dynamicSubject);
+      if (subjectField) subjectField.value = dynamicSubject;
+
+      status.className = 'form-status is-sending';
+      status.textContent = 'Sending...';
+      submitBtn.disabled = true;
+      const originalBtnText = submitBtn.textContent;
+      submitBtn.textContent = 'Sending...';
+
       try {
-        const res = await fetch(form.action, { method: 'POST', body: data, headers: { Accept: 'application/json' } });
-        if (res.ok) {
-          form.reset();
-          status.classList.add('is-success');
-          status.textContent = "Thanks - we'll reply within one business day.";
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: data,
+          headers: { Accept: 'application/json' },
+        });
+        const result = await res.json().catch(() => ({}));
+        if (res.ok && result.success !== false) {
+          formWrap.hidden = true;
+          successPanel.hidden = false;
+          successPanel.focus();
         } else {
-          status.classList.add('is-error');
-          status.textContent = "Something went wrong. Please email derek.beitz@soloex.io directly.";
+          status.className = 'form-status is-error';
+          status.textContent = "Something went wrong sending your message. Please email derek.beitz@soloex.io directly and we'll pick it up from there.";
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalBtnText;
         }
       } catch {
-        status.classList.add('is-error');
-        status.textContent = "Couldn't reach the form service. Please email derek.beitz@soloex.io directly.";
+        status.className = 'form-status is-error';
+        status.textContent = "Couldn't reach the form service. Please email derek.beitz@soloex.io directly and we'll pick it up from there.";
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalBtnText;
       }
     });
   }

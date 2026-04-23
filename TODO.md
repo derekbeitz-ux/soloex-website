@@ -6,13 +6,6 @@ Track every placeholder that needs a real value, and every post-launch task that
 
 ## Before site handles real traffic
 
-### Contact form (blocks working form)
-- [ ] Create a free account at https://web3forms.com and verify the delivery email (use `derek.beitz@soloex.io`).
-- [ ] Copy the access key.
-- [ ] Open `src/pages/contact.astro` and replace `YOUR_WEB3FORMS_ACCESS_KEY` with the real key.
-- [ ] Commit and push — Cloudflare redeploys in ~60 seconds.
-- [ ] Send a test message from the contact form and confirm it arrives.
-
 ### Cloudflare Web Analytics (cookieless)
 - [ ] In Cloudflare → Analytics & Logs → Web Analytics → Add a site → enter `soloex.io`.
 - [ ] Copy the beacon token Cloudflare shows.
