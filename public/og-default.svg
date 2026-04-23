@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#051A2B" stroke-opacity="0.08" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#FFFFFF"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <g transform="translate(80, 120)">
+    <g transform="translate(0, 0)">
+      <path d="M40 10 L76 40 L40 70 L4 40 Z" stroke="#0C5494" stroke-width="2.5" fill="none" stroke-linejoin="round"/>
+      <path d="M16 28 Q40 24 64 30" stroke="#479DE7" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+      <path d="M12 34 Q40 30 68 36" stroke="#479DE7" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+      <path d="M10 40 Q40 38 70 42" stroke="#479DE7" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+      <path d="M12 46 Q40 48 68 44" stroke="#479DE7" stroke-width="1.8" fill="none" stroke-linecap="round" opacity="0.85"/>
+      <path d="M16 52 Q40 54 64 50" stroke="#479DE7" stroke-width="1.8" fill="none" stroke-linecap="round" opacity="0.85"/>
+    </g>
+    <text x="100" y="52" font-family="Georgia, serif" font-size="38" font-weight="500" fill="#051A2B">Soloex.io</text>
+  </g>
+  <text x="80" y="340" font-family="Georgia, serif" font-size="72" font-weight="500" fill="#051A2B">
+    <tspan x="80" dy="0">Your CRM isn't working.</tspan>
+    <tspan x="80" dy="86">We'll fix it.</tspan>
+  </text>
+  <text x="80" y="520" font-family="system-ui, -apple-system, sans-serif" font-size="24" fill="#4A5A6B">
+    Salesforce and HubSpot consulting without the agency overhead.
+  </text>
+  <text x="80" y="560" font-family="system-ui, -apple-system, sans-serif" font-size="20" fill="#0C5494" font-weight="500">
+    100+ projects · Women-owned · WBENC certified
+  </text>
+</svg>

@@ -1,0 +1,244 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const CALENDLY_URL = 'https://calendly.com/derek-beitz-soloex/30min';
+const LINKEDIN_DEREK = 'https://www.linkedin.com/in/derekbeitz/';
+const LINKEDIN_CO = 'https://www.linkedin.com/company/soloex-io/';
+
+const pageDesc = 'Soloex is a Salesforce and HubSpot consultancy founded by Derek and Kristin Beitz in Mechanicsburg, PA. Women-owned, WBENC certified. Built by the person who will actually build your CRM.';
+---
+
+<Layout title="About — Soloex.io" description={pageDesc} active="about">
+
+  <section class="section-hero">
+    <div class="container-narrow">
+      <p class="eyebrow">About</p>
+      <h1>How Soloex started.</h1>
+    </div>
+  </section>
+
+  <section class="section-compact">
+    <div class="container-narrow prose">
+      <p>Derek spent years as the technical closer at a Summit-tier Salesforce Partner. When a sales team needed someone to walk a client through the hard parts, he was the person they pulled onto the call. He'd win the business, then do the actual work — business analysis, solution architecture, the build itself, training, and the inevitable upsell a few months later.</p>
+
+      <p>The agency sold those projects for $170,000.</p>
+
+      <p>He made $93,000.</p>
+
+      <p>In August 2024, Derek and his wife Kristin went full-time on Soloex. He does the work he was already doing — just directly, for the client, without the agency markup and without a sales team cashing his checks.</p>
+
+      <p>Kristin runs operations, books, and billing. Women-owned, WBENC certified.</p>
+
+      <p>The bet is simple: when you hire Soloex, you hire the person who's going to build it. Not a pitch deck. Not a junior handed your project after the closer signs. The same person who used to get pulled onto closing calls to provide the confidence that won the business in the first place.</p>
+
+      <p class="pull">No one was going to out-work us.</p>
+    </div>
+  </section>
+
+  <section class="section-tinted">
+    <div class="container">
+      <div class="section-header">
+        <p class="eyebrow">The team</p>
+        <h2>Two people. Every email answered.</h2>
+      </div>
+      <div class="team-grid">
+        <div class="card team-card">
+          <!-- PLACEHOLDER: Derek headshot. Replace gradient avatar with <img src="/derek.jpg" alt="Derek Beitz, founder of Soloex" class="team-avatar" />. -->
+          <div class="team-avatar team-avatar-derek" aria-hidden="true">DB</div>
+          <h3>Derek Beitz</h3>
+          <div class="team-role">Founder &amp; Technical Lead</div>
+          <p>Salesforce and HubSpot certified. Former consultant at a Summit-tier Salesforce Partner. Member of Salesforce's Automotive Cloud beta testing program. Leads every client engagement from discovery through go-live.</p>
+          <a href={LINKEDIN_DEREK} target="_blank" rel="noopener" class="inline-link">LinkedIn →</a>
+        </div>
+        <div class="card team-card">
+          <!-- PLACEHOLDER: Kristin headshot. Gray circle for now. Replace with <img src="/kristin.jpg" alt="Kristin Beitz, co-founder of Soloex" class="team-avatar" />. -->
+          <div class="team-avatar team-avatar-gray" aria-hidden="true"></div>
+          <h3>Kristin Beitz</h3>
+          <div class="team-role">Co-founder &amp; Operations</div>
+          <p>Runs operations, books, and billing. The reason Derek stays in the technical work instead of the spreadsheet. Women-owned, WBENC certified.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container-narrow">
+      <h2 class="sub-h2">Our credentials</h2>
+      <ul class="credentials">
+        <li>
+          <strong>WBENC certified women-owned business</strong>
+          <span>Registered through WBENC. Eligible for supplier-diversity procurement programs.</span>
+        </li>
+        <li>
+          <strong>Certified Salesforce Partner</strong>
+          <span>Five active certifications across Sales Cloud, Service Cloud, Marketing Cloud, Account Engagement, and more.</span>
+        </li>
+        <li>
+          <strong>Top Rated Plus on Upwork</strong>
+          <span>★ 5.0 rating · 100% Job Success · Top Rated Plus (top 3% of freelancers globally).</span>
+        </li>
+        <li>
+          <strong>Salesforce Automotive Cloud beta partner</strong>
+          <span>Member of Salesforce's Automotive Cloud beta testing program.</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section-tinted">
+    <div class="container-narrow">
+      <h2 class="sub-h2">How we work</h2>
+      <p class="muted-p">Every engagement follows the same six steps — kickoff, discovery, scope, build, go live, support. The order never changes. The transparency never changes. You always know where you are.</p>
+      <a href="/process" class="inline-link">See the full process →</a>
+    </div>
+  </section>
+
+  <section>
+    <div class="container-narrow">
+      <h2 class="sub-h2">Who we work with</h2>
+      <div class="facts">
+        <div>
+          <div class="fact-label">Company size</div>
+          <p>Up to 500 employees. Sweet spot is SMB and lower mid-market.</p>
+        </div>
+        <div>
+          <div class="fact-label">Industries</div>
+          <p>Agnostic. Projects span universities, healthcare, tech, landscaping, automotive, and more.</p>
+        </div>
+        <div>
+          <div class="fact-label">Geography</div>
+          <p>Primarily US. Open to international. Based in Mechanicsburg, PA.</p>
+        </div>
+        <div>
+          <div class="fact-label">Who we talk to</div>
+          <p>Founders, owners, VPs, and directors with budget authority.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-dark final-cta">
+    <div class="container">
+      <h2>Want to talk?</h2>
+      <p class="final-cta-subhead">Free 30-minute call. Tell us what's broken.</p>
+      <a href={CALENDLY_URL} class="btn btn-light btn-large" target="_blank" rel="noopener">Fix my CRM →</a>
+      <div class="final-cta-meta">
+        <a href={LINKEDIN_CO} target="_blank" rel="noopener">Soloex on LinkedIn →</a>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  .prose p {
+    font-size: 18px;
+    color: var(--color-text-primary);
+    line-height: 1.7;
+    margin-bottom: 18px;
+  }
+  .prose p.pull {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 22px;
+    color: var(--color-ink-700);
+    margin-top: 28px;
+  }
+
+  .section-header { text-align: center; margin-bottom: 40px; }
+
+  .team-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .team-card { text-align: center; padding: 36px 28px; }
+  .team-avatar {
+    width: 112px;
+    height: 112px;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-serif);
+    font-size: 36px;
+    font-weight: 500;
+    color: #FFFFFF;
+  }
+  .team-avatar-derek {
+    background: linear-gradient(135deg, var(--color-ink-500) 0%, var(--color-ink-700) 100%);
+  }
+  .team-avatar-gray { background: #D6DEE6; }
+  .team-role {
+    font-size: 11px;
+    color: var(--color-ink-500);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin: 6px 0 14px;
+  }
+
+  .sub-h2 { font-size: clamp(24px, 2.4vw, 30px); margin-bottom: 18px; }
+  .muted-p { color: var(--color-text-secondary); font-size: 16px; margin-bottom: 14px; }
+
+  .credentials { display: flex; flex-direction: column; gap: 18px; }
+  .credentials li {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 20px;
+    padding: 14px 0;
+    border-top: 0.5px solid var(--color-border-soft);
+    align-items: baseline;
+  }
+  .credentials li:first-child { border-top: 0; }
+  .credentials li strong {
+    color: var(--color-text-primary);
+    font-weight: 500;
+    font-size: 15px;
+  }
+  .credentials li span { color: var(--color-text-secondary); font-size: 14px; }
+
+  .facts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px 40px;
+  }
+  .fact-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--color-ink-500);
+    font-weight: 500;
+    margin-bottom: 6px;
+  }
+
+  .inline-link {
+    display: inline-block;
+    font-size: 14px;
+    color: var(--color-ink-700);
+    font-weight: 500;
+    margin-top: 4px;
+    transition: transform 0.2s ease;
+  }
+  .inline-link:hover { transform: translateX(2px); }
+
+  .final-cta { text-align: center; padding: 96px 0; }
+  .final-cta h2 { color: #FFFFFF; }
+  .final-cta-subhead {
+    color: var(--color-ink-300);
+    font-size: 17px;
+    max-width: 480px;
+    margin: 16px auto 28px;
+  }
+  .final-cta-meta { margin-top: 28px; font-size: 13px; }
+  .final-cta-meta a { color: var(--color-ink-300); }
+
+  @media (max-width: 820px) {
+    .team-grid { grid-template-columns: 1fr; max-width: 480px; }
+    .credentials li { grid-template-columns: 1fr; gap: 4px; }
+    .facts { grid-template-columns: 1fr; }
+  }
+</style>

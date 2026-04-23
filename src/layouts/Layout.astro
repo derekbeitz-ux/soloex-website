@@ -1,0 +1,90 @@
+---
+import '../styles/global.css';
+
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  active?: 'services' | 'process' | 'about' | 'contact' | null;
+  canonical?: string;
+  ogType?: string;
+}
+
+const DEFAULT_DESC =
+  'Soloex is a Salesforce and HubSpot consultancy for companies in CRM distress — bad implementations, outgrown systems, and tech stack exhaustion. We migrate, rebuild, and optimize based on industry best practices and 100+ projects of hands-on experience.';
+
+const {
+  title,
+  description = DEFAULT_DESC,
+  active = null,
+  canonical,
+  ogType = 'website',
+} = Astro.props;
+
+const site = Astro.site?.toString() ?? 'https://soloex.io/';
+const canonicalURL = canonical ?? new URL(Astro.url.pathname, site).toString();
+const ogImage = new URL('/og-default.svg', site).toString();
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:site_name" content="Soloex.io" />
+    <meta property="og:image" content={ogImage} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <meta name="theme-color" content="#0C5494" />
+
+    <!-- Cloudflare Web Analytics (cookieless) -->
+    <!-- PLACEHOLDER: Replace TOKEN with the beacon token from Cloudflare → Analytics & Logs → Web Analytics once the site is deployed. -->
+    <!-- <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "TOKEN"}'></script> -->
+  </head>
+  <body>
+    <a href="#main" class="skip-link">Skip to content</a>
+    <Nav active={active} />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<style is:global>
+  .skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--color-ink-700);
+    color: #FFFFFF;
+    padding: 8px 16px;
+    z-index: 1000;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+  }
+  .skip-link:focus {
+    top: 0;
+    color: #FFFFFF;
+  }
+</style>

@@ -1,0 +1,167 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const CALENDLY_URL = 'https://calendly.com/derek-beitz-soloex/30min';
+
+const steps = [
+  {
+    num: '1',
+    title: 'Kickoff call (free · 30 min)',
+    body: "No screen shares. No interrogation. We meet, you tell us what's bothering you, we tell you whether Soloex is the right fit. Low pressure on both sides.",
+    footnote: 'Why no screen share on the first call? Screen-sharing without preparation puts people on defense and yields bad information. A relaxed kickoff first, then a prepared discovery session.',
+  },
+  {
+    num: '2',
+    title: 'Discovery call',
+    body: "Now we get specific. You walk us through your actual system — we're looking at real screens, real data, real pain points. We ask the questions that matter. You'll leave this call with a much clearer picture of what needs to change.",
+  },
+  {
+    num: '3',
+    title: 'Scope and plan',
+    body: "We send a technical scope document: recommendations, timeline, pricing. No fluff. You know exactly what we're going to do, when, and for how much.",
+  },
+  {
+    num: '4',
+    title: 'Build',
+    body: 'Two engagement models — your call:',
+    sub: [
+      { label: 'Milestone-based', text: 'Fixed scope, weekly syncs, clear deliverables.' },
+      { label: 'Retainer', text: 'Hourly from a monthly bucket, flexible scope, continuous availability.' },
+    ],
+    trailing: 'Either way, we execute. Weekly meetings throughout.',
+  },
+  {
+    num: '5',
+    title: 'Go live',
+    body: "Your CRM works. Your team is trained. You're in control — not us. We hand over clean documentation and make sure everyone knows how to use what we built.",
+  },
+  {
+    num: '6',
+    title: 'Ongoing support',
+    body: "We don't aggressively close the relationship. Call when you need us. Tweak a workflow. Add a new integration. Build the next phase. We'll be here.",
+  },
+];
+
+const pageDesc = 'How Soloex works: kickoff, discovery, scope, build, go live, and ongoing support. Six steps. No surprises.';
+---
+
+<Layout title="Process — Soloex.io" description={pageDesc} active="process">
+
+  <section class="section-hero">
+    <div class="container-narrow">
+      <p class="eyebrow">Process</p>
+      <h1>Six steps. No surprises.</h1>
+      <p class="lede">Every engagement follows the same order. The transparency never changes. You always know where you are.</p>
+    </div>
+  </section>
+
+  <section class="section-compact">
+    <div class="container-narrow">
+      <ol class="steps">
+        {steps.map((s) => (
+          <li class="step">
+            <div class="step-num">{s.num}</div>
+            <div class="step-body">
+              <h2 class="step-title">{s.title}</h2>
+              <p>{s.body}</p>
+              {s.sub && (
+                <div class="step-sub">
+                  {s.sub.map((item) => (
+                    <div class="step-sub-item">
+                      <strong>{item.label} —</strong> {item.text}
+                    </div>
+                  ))}
+                </div>
+              )}
+              {s.trailing && <p class="step-trailing">{s.trailing}</p>}
+              {s.footnote && <p class="step-foot">{s.footnote}</p>}
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="section-dark final-cta">
+    <div class="container">
+      <h2>The first step is free.</h2>
+      <p class="final-cta-subhead">Thirty minutes. No pressure. Just a conversation about your CRM.</p>
+      <a href={CALENDLY_URL} class="btn btn-light btn-large" target="_blank" rel="noopener">Book a free discovery call</a>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  .lede {
+    font-size: 19px;
+    color: var(--color-text-secondary);
+    max-width: 540px;
+    margin-top: 18px;
+  }
+  .steps {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .step {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 24px;
+  }
+  .step-num {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--color-ink-700);
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-serif);
+    font-size: 22px;
+    font-weight: 500;
+  }
+  .step-title {
+    font-size: clamp(22px, 2.4vw, 28px);
+    margin-bottom: 12px;
+  }
+  .step-body p { font-size: 17px; color: var(--color-text-primary); line-height: 1.65; margin-bottom: 12px; }
+  .step-trailing { color: var(--color-text-secondary); }
+  .step-sub { margin: 14px 0 8px; display: flex; flex-direction: column; gap: 10px; }
+  .step-sub-item {
+    padding: 12px 16px;
+    background: var(--color-bg-tinted);
+    border-left: 3px solid var(--color-ink-500);
+    border-radius: 4px;
+    font-size: 15px;
+    color: var(--color-text-primary);
+  }
+  .step-sub-item strong { font-weight: 500; color: var(--color-ink-700); }
+  .step-foot {
+    margin-top: 14px;
+    font-family: var(--font-serif);
+    font-style: italic;
+    color: var(--color-text-secondary);
+    font-size: 15px;
+    padding-left: 16px;
+    border-left: 2px solid var(--color-border);
+  }
+
+  .final-cta { text-align: center; padding: 96px 0; }
+  .final-cta h2 { color: #FFFFFF; }
+  .final-cta-subhead {
+    color: var(--color-ink-300);
+    font-size: 17px;
+    max-width: 480px;
+    margin: 16px auto 28px;
+  }
+
+  @media (max-width: 640px) {
+    .step { grid-template-columns: 48px 1fr; gap: 16px; }
+    .step-num { width: 44px; height: 44px; font-size: 18px; }
+  }
+</style>

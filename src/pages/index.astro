@@ -1,0 +1,715 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const CALENDLY_URL = 'https://calendly.com/derek-beitz-soloex/30min';
+const UPWORK_URL = 'https://www.upwork.com/freelancers/~01a68484f6725225f8';
+const LINKEDIN_DEREK = 'https://www.linkedin.com/in/derekbeitz/';
+
+// 10 neutral placeholder logo tiles — swap with real client logos + written permission pre-launch.
+const clientLogos = [
+  { name: 'CLIENT ONE',    style: 'caps' },
+  { name: 'Northpoint',    style: 'serif' },
+  { name: 'Apex Labs',     style: 'sans' },
+  { name: 'Meridian',      style: 'italic' },
+  { name: 'Halcyon',       style: 'serif' },
+  { name: 'Fieldwork Co.', style: 'sans' },
+  { name: 'Bellweather',   style: 'serif' },
+  { name: 'Ironridge',     style: 'caps' },
+  { name: 'Cascade',       style: 'italic' },
+  { name: 'Summit House',  style: 'mono' },
+];
+
+const problems = [
+  {
+    title: "You inherited something broken.",
+    body: "Someone before you built it wrong, customized it to death, or abandoned it mid-project. Your team has given up on parts of the system entirely.",
+  },
+  {
+    title: "You've outgrown what you built.",
+    body: "What worked for 20 people is breaking at 150. Reports are slow. Data is stale. Teams are working around the system instead of through it.",
+  },
+  {
+    title: "Your stack is exhausting you.",
+    body: "Too many tools. Too many workflows. Nothing is integrated the way it should be. Your team is drowning in tabs and duplicate data.",
+  },
+];
+
+const services = [
+  {
+    number: '01',
+    title: 'Implement',
+    tagline: 'Start fresh. Build right.',
+    body: 'Full Salesforce or HubSpot implementation from the ground up — scoped, architected, delivered. No abandoned half-builds. No "we\'ll figure it out in production."',
+    href: '/services#implement',
+  },
+  {
+    number: '02',
+    title: 'Migrate',
+    tagline: 'Out of the old. Into what works.',
+    body: 'Platform switches, data migrations, consolidation. Salesforce ↔ HubSpot, or from Zoho, Marketo, Eloqua, and others. Zero data loss. Minimal downtime.',
+    href: '/services#migrate',
+  },
+  {
+    number: '03',
+    title: 'Optimize',
+    tagline: 'Fix what\'s broken. Keep what works.',
+    body: 'CRM audits, workflow cleanup, reports and dashboards, admin support, and ongoing optimization. Make the system you already have do what it was supposed to do.',
+    href: '/services#optimize',
+  },
+];
+
+// PLACEHOLDER project highlights. Replace each with a real, numbered outcome pre-launch.
+// Format: single sentence, crisp metric where possible.
+const projects = [
+  {
+    tag: 'Migration',
+    body: 'PLACEHOLDER — describe a real migration with a concrete outcome. Example shape: <strong>Migrated [N]-contact Salesforce org to HubSpot</strong> in [N] weeks. Zero data loss.',
+  },
+  {
+    tag: 'Implementation',
+    body: 'PLACEHOLDER — describe a real implementation with a concrete outcome. Example shape: <strong>Built a unified Sales Cloud + Account Engagement instance</strong> for [industry/company]. Reduced [metric] by [N]%.',
+  },
+  {
+    tag: 'Optimization',
+    body: 'PLACEHOLDER — describe a real optimization with a concrete outcome. Example shape: <strong>Consolidated [N] tools into a single HubSpot instance.</strong> Cut [N] recurring software costs.',
+  },
+];
+
+// Testimonial attributions: initials + role + company, pending permission from reviewers.
+// PLACEHOLDER — replace with real attributions once clients grant permission (see docs/03 §7.4 template).
+const testimonials = [
+  {
+    quote: "His knowledge of the Salesforce Platform outperformed that of a hired agency recommended by Salesforce. If you need an innovator to get the most out of the Salesforce environment, Derek is my first choice.",
+    initials: 'J.M.',
+    role: 'VP of Operations',
+    company: 'PLACEHOLDER Company',
+    tags: [],
+    featured: true,
+  },
+  {
+    quote: "Derek is extremely helpful — not just because of his skill set but his genuine desire to help you solve problems. His 'get it done' attitude is remarkable.",
+    initials: 'S.R.',
+    role: 'Founder',
+    company: 'PLACEHOLDER Co.',
+    tags: ['Solution Oriented'],
+    featured: false,
+  },
+  {
+    quote: "Would highly recommend Derek to anyone who needs support with their Account Engagement implementation.",
+    initials: 'K.T.',
+    role: 'Marketing Director',
+    company: 'PLACEHOLDER Inc.',
+    tags: ['Collaborative', 'Clear Communicator', 'Detail Oriented'],
+    featured: false,
+  },
+];
+
+const processSteps = [
+  { num: '1', title: 'Kickoff',   desc: 'Free · 30 min' },
+  { num: '2', title: 'Discovery', desc: 'Working session' },
+  { num: '3', title: 'Scope',     desc: 'Plan + pricing' },
+  { num: '4', title: 'Build',     desc: 'Weekly syncs' },
+  { num: '5', title: 'Go live',   desc: 'Team trained' },
+  { num: '6', title: 'Support',   desc: 'Ongoing' },
+];
+
+const pageDesc = 'Soloex is a Salesforce and HubSpot consultancy for companies in CRM distress — bad implementations, outgrown systems, and tech stack exhaustion. We migrate, rebuild, and optimize based on industry best practices and 100+ projects of hands-on experience.';
+---
+
+<Layout title="Soloex.io — Salesforce & HubSpot consulting without the agency overhead" description={pageDesc}>
+
+  <!-- 1. HERO -->
+  <section class="section-hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1>Your CRM isn't working.<br>We'll fix it.</h1>
+        <p class="hero-subhead">Salesforce and HubSpot consulting without the agency overhead. 100+ projects delivered. Women-owned. WBENC certified.</p>
+        <div class="hero-ctas">
+          <a href={CALENDLY_URL} class="btn btn-primary btn-large" target="_blank" rel="noopener">Fix my CRM →</a>
+          <a href="#proof" class="btn btn-secondary btn-large">See our work</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. STATS STRIP -->
+  <section class="section-tinted section-tight">
+    <div class="container">
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-num">100+</div>
+          <div class="stat-label">projects completed</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">5</div>
+          <div class="stat-label">certifications<br><span class="text-xs text-muted">(Salesforce + HubSpot)</span></div>
+        </div>
+        <div class="stat">
+          <div class="stat-num stat-word">WBENC</div>
+          <div class="stat-label">certified, women-owned</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num stat-word">Summit</div>
+          <div class="stat-label">trained consultant</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. UPWORK PROOF BAR -->
+  <section class="upwork-proof section-tight">
+    <div class="container">
+      <a href={UPWORK_URL} target="_blank" rel="noopener" class="upwork-bar" aria-label="Read reviews on Upwork">
+        <span class="stars" aria-hidden="true">★★★★★</span>
+        <span class="upwork-item"><strong>5.0</strong> on Upwork</span>
+        <span class="dot" aria-hidden="true">·</span>
+        <span class="upwork-item"><strong>100%</strong> Job Success</span>
+        <span class="dot" aria-hidden="true">·</span>
+        <span class="upwork-item"><strong>Top Rated Plus</strong> <span class="dim">(top 3%)</span></span>
+        <span class="arrow" aria-hidden="true">→</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- 4. CLIENT LOGO CAROUSEL -->
+  <!-- PLACEHOLDER: 10 neutral logo tiles. Replace with real client logos + written permission pre-launch. -->
+  <section id="proof" class="logo-section">
+    <div class="container">
+      <p class="eyebrow text-center">Trusted by leading teams</p>
+    </div>
+    <div class="logo-carousel" aria-hidden="true">
+      <div class="logo-track">
+        {[...clientLogos, ...clientLogos].map((logo) => (
+          <div class={`logo-tile style-${logo.style}`}>{logo.name}</div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. THE PROBLEM -->
+  <section class="section-tinted">
+    <div class="container">
+      <div class="section-header">
+        <p class="eyebrow">The problem</p>
+        <h2>Your CRM is broken for one of three reasons.</h2>
+      </div>
+      <div class="cards-grid">
+        {problems.map((p) => (
+          <div class="card">
+            <h3>{p.title}</h3>
+            <p>{p.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. SERVICES -->
+  <section>
+    <div class="container">
+      <div class="section-header">
+        <p class="eyebrow">What we do</p>
+        <h2>Implement. Migrate. Optimize.</h2>
+        <p class="section-lede">Three paths to a CRM that actually works for you.</p>
+      </div>
+      <div class="cards-grid">
+        {services.map((s) => (
+          <div class="card service-card">
+            <div class="service-num">{s.number}</div>
+            <h3>{s.title}</h3>
+            <div class="service-tagline">{s.tagline}</div>
+            <p>{s.body}</p>
+            <a href={s.href} class="service-link">Learn more →</a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. PLATFORMS & EXPERTISE -->
+  <section class="section-dark">
+    <div class="container">
+      <div class="section-header">
+        <p class="eyebrow">Platforms & expertise</p>
+        <h2>We work deep across both ecosystems.</h2>
+      </div>
+
+      <div class="platforms-grid">
+        <div class="platform-col">
+          <div class="platform-heading">Salesforce</div>
+          <div class="pill-row">
+            <span class="pill-dark">Sales Cloud</span>
+            <span class="pill-dark">Service Cloud</span>
+            <span class="pill-dark">Marketing Cloud Growth</span>
+            <span class="pill-dark">Account Engagement</span>
+            <span class="pill-dark">Financial Services</span>
+            <span class="pill-dark">Health Cloud</span>
+            <span class="pill-dark pill-featured">Automotive · Beta Partner</span>
+          </div>
+        </div>
+
+        <div class="platform-col">
+          <div class="platform-heading">HubSpot</div>
+          <div class="pill-row">
+            <span class="pill-dark">Sales Hub</span>
+            <span class="pill-dark">Marketing Hub</span>
+            <span class="pill-dark">Content Hub</span>
+            <span class="pill-dark">Service Hub</span>
+          </div>
+          <div class="platform-heading" style="margin-top: 24px;">We migrate from</div>
+          <div class="pill-row">
+            <span class="pill-dark">Zoho</span>
+            <span class="pill-dark">Marketo</span>
+            <span class="pill-dark">Eloqua</span>
+            <span class="pill-dark">NetSuite</span>
+            <span class="pill-dark">Pipedrive</span>
+            <span class="pill-dark">and more</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="platform-col" style="margin-top: 32px;">
+        <div class="platform-heading">Integrations & tools</div>
+        <div class="pill-row">
+          <span class="pill-dark">Zapier</span>
+          <span class="pill-dark">Make.com</span>
+          <span class="pill-dark">Clay</span>
+          <span class="pill-dark">Conga</span>
+          <span class="pill-dark">Customer.io</span>
+          <span class="pill-dark">RingCentral</span>
+          <span class="pill-dark">QuickBooks</span>
+          <span class="pill-dark">ZoomInfo</span>
+          <span class="pill-dark">Apollo</span>
+          <span class="pill-dark">Gong</span>
+          <span class="pill-dark">GTM</span>
+          <span class="pill-dark">and more</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. PROOF / PROJECT HIGHLIGHTS -->
+  <!-- PLACEHOLDER: 3 project highlights. Replace with real, numbered outcomes pre-launch. See TODO.md. -->
+  <section>
+    <div class="container">
+      <div class="section-header">
+        <p class="eyebrow">Selected work</p>
+        <h2>Projects that moved the number.</h2>
+      </div>
+      <div class="cards-grid">
+        {projects.map((p) => (
+          <div class="card">
+            <div class="project-tag">{p.tag}</div>
+            <p set:html={p.body}></p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. TESTIMONIALS -->
+  <!-- PLACEHOLDER attributions: initials + role + company. Replace with real names once clients grant permission. -->
+  <section class="section-tinted">
+    <div class="container">
+      <div class="section-header">
+        <p class="eyebrow">What clients say</p>
+        <h2>Five-star reviews. Verified on Upwork.</h2>
+      </div>
+      {testimonials.filter(t => t.featured).map((t) => (
+        <div class="card testimonial-featured">
+          <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <blockquote class="testimonial-quote testimonial-quote-featured">"{t.quote}"</blockquote>
+          <div class="testimonial-meta">
+            <span class="testimonial-attr">— {t.initials}, {t.role}, {t.company}</span>
+            <span class="testimonial-source">Upwork · verified</span>
+          </div>
+        </div>
+      ))}
+      <div class="testimonials-grid">
+        {testimonials.filter(t => !t.featured).map((t) => (
+          <div class="card">
+            <div class="stars stars-small" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote class="testimonial-quote">"{t.quote}"</blockquote>
+            {t.tags.length > 0 && (
+              <div class="testimonial-tags">
+                {t.tags.map((tag) => <span class="pill">{tag}</span>)}
+              </div>
+            )}
+            <div class="testimonial-attr">— {t.initials}, {t.role}, {t.company}</div>
+            <div class="testimonial-source">Upwork · verified</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. MEET THE TEAM -->
+  <section>
+    <div class="container">
+      <div class="section-header">
+        <p class="eyebrow">Meet the team</p>
+        <h2>Husband-and-wife team. Women-owned.</h2>
+        <p class="section-lede">Built on trust. Run by two people who answer every email themselves.</p>
+      </div>
+      <div class="team-grid">
+        <div class="card team-card">
+          <!-- PLACEHOLDER: Derek headshot. Replace gradient avatar with <img src="/derek.jpg" alt="Derek Beitz, founder of Soloex" class="team-avatar" />. -->
+          <div class="team-avatar team-avatar-derek" aria-hidden="true">DB</div>
+          <h3>Derek Beitz</h3>
+          <div class="team-role">Founder &amp; Technical Lead</div>
+          <p>Certified across Salesforce and HubSpot. Former consultant at a Summit-tier Salesforce Partner. Member of Salesforce's Automotive Cloud beta program.</p>
+          <a href={LINKEDIN_DEREK} target="_blank" rel="noopener" class="service-link">LinkedIn →</a>
+        </div>
+        <div class="card team-card">
+          <!-- PLACEHOLDER: Kristin headshot. Replace gray-circle avatar with <img src="/kristin.jpg" alt="Kristin Beitz, co-founder of Soloex" class="team-avatar" />. -->
+          <div class="team-avatar team-avatar-gray" aria-hidden="true"></div>
+          <h3>Kristin Beitz</h3>
+          <div class="team-role">Co-founder &amp; Operations</div>
+          <p>Runs operations, books, and billing — everything that lets Derek stay in the technical work. Women-owned, WBENC certified.</p>
+        </div>
+      </div>
+      <div class="text-center" style="margin-top: 24px;">
+        <a href="/about" class="service-link">Read the full story →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11. PROCESS PREVIEW -->
+  <section class="section-tinted">
+    <div class="container">
+      <div class="section-header">
+        <p class="eyebrow">How we work</p>
+        <h2>Six steps. No surprises.</h2>
+      </div>
+      <ol class="process-preview">
+        {processSteps.map((step, i) => (
+          <li class="process-step">
+            <div class={`process-num ${i === processSteps.length - 1 ? 'process-num-light' : ''}`}>{step.num}</div>
+            <div class="process-title">{step.title}</div>
+            <div class="process-desc">{step.desc}</div>
+          </li>
+        ))}
+      </ol>
+      <div class="text-center" style="margin-top: 32px;">
+        <a href="/process" class="service-link">See the full process →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 12. FINAL CTA -->
+  <section class="section-dark final-cta">
+    <div class="container">
+      <h2>Ready to fix your CRM?</h2>
+      <p class="final-cta-subhead">Free 30-minute call. No pitch. Just your CRM, our questions, and a clear next step.</p>
+      <a href={CALENDLY_URL} class="btn btn-light btn-large" target="_blank" rel="noopener">Fix my CRM →</a>
+      <div class="final-cta-location">Mechanicsburg, PA · Working with clients across North America and internationally.</div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  .hero-content { max-width: 760px; }
+  .hero-subhead {
+    font-size: 19px;
+    margin: 22px 0 36px;
+    max-width: 620px;
+    color: var(--color-text-secondary);
+  }
+  .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+  .section-lede {
+    max-width: 480px;
+    margin: 14px auto 0;
+  }
+
+  /* Stats strip */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+  .stat-num {
+    font-family: var(--font-serif);
+    font-size: clamp(30px, 3.2vw, 42px);
+    font-weight: 500;
+    color: var(--color-ink-700);
+    line-height: 1;
+  }
+  .stat-word { font-size: clamp(22px, 2.5vw, 28px); }
+  .stat-label {
+    font-size: 13px;
+    color: var(--color-text-secondary);
+    margin-top: 10px;
+    line-height: 1.4;
+  }
+
+  /* Upwork bar */
+  .upwork-proof {
+    background: var(--color-bg-tinted);
+    border-bottom: 0.5px solid var(--color-border-soft);
+  }
+  .upwork-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-size: 14px;
+    color: var(--color-text-secondary);
+    padding: 8px 0;
+    flex-wrap: wrap;
+    text-decoration: none;
+  }
+  .upwork-bar:hover .arrow { transform: translateX(4px); }
+  .upwork-item strong { color: var(--color-text-primary); font-weight: 500; }
+  .dot { color: var(--color-text-tertiary); }
+  .dim { color: var(--color-text-tertiary); font-size: 13px; }
+  .arrow {
+    transition: transform 0.2s ease;
+    color: var(--color-ink-500);
+    margin-left: 6px;
+  }
+  .stars-small { font-size: 13px; margin-bottom: 12px; }
+
+  /* Logo carousel */
+  .logo-section { padding: 64px 0; overflow: hidden; }
+  .logo-carousel {
+    margin-top: 28px;
+    overflow: hidden;
+    mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  }
+
+  /* Cards */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+
+  /* Services */
+  .service-num {
+    width: 38px;
+    height: 38px;
+    border: 1.5px solid var(--color-ink-500);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-ink-700);
+    font-family: var(--font-serif);
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 16px;
+    background: var(--color-bg-tinted);
+  }
+  .service-tagline {
+    font-size: 13px;
+    color: var(--color-ink-500);
+    font-style: italic;
+    margin: 4px 0 12px;
+  }
+  .service-link {
+    display: inline-block;
+    margin-top: 14px;
+    font-size: 13px;
+    color: var(--color-ink-700);
+    font-weight: 500;
+    transition: transform 0.2s ease;
+  }
+  .service-link:hover { transform: translateX(2px); color: var(--color-ink-900); }
+
+  /* Platforms (dark bg) */
+  .platforms-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+  .platform-heading {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    color: var(--color-ink-300);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    font-weight: 500;
+  }
+  .pill-row { display: flex; flex-wrap: wrap; gap: 8px; }
+  .pill-dark {
+    background: rgba(168, 212, 250, 0.08);
+    border: 0.5px solid rgba(168, 212, 250, 0.24);
+    color: #FFFFFF;
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 13px;
+    line-height: 1;
+  }
+  .pill-featured {
+    background: rgba(71, 157, 231, 0.22);
+    border-color: var(--color-ink-500);
+  }
+
+  /* Projects */
+  .project-tag {
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    color: var(--color-ink-500);
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 12px;
+  }
+
+  /* Testimonials */
+  .testimonial-featured {
+    padding: 40px;
+    margin-bottom: 18px;
+  }
+  .testimonial-quote {
+    font-family: var(--font-serif);
+    font-style: italic;
+    color: var(--color-text-primary);
+    line-height: 1.5;
+    margin: 14px 0;
+    font-size: 16px;
+  }
+  .testimonial-quote-featured {
+    font-size: 22px;
+    line-height: 1.4;
+  }
+  .testimonial-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 12px;
+  }
+  .testimonial-attr {
+    font-size: 13px;
+    color: var(--color-text-primary);
+    font-weight: 500;
+    margin-top: 6px;
+  }
+  .testimonial-source {
+    font-size: 12px;
+    color: var(--color-ink-500);
+    font-weight: 500;
+    margin-top: 4px;
+  }
+  .testimonial-meta {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: var(--color-text-secondary);
+  }
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+
+  /* Team */
+  .team-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .team-card { text-align: center; padding: 36px 28px; }
+  .team-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-serif);
+    font-size: 34px;
+    font-weight: 500;
+    color: #FFFFFF;
+  }
+  .team-avatar-derek {
+    background: linear-gradient(135deg, var(--color-ink-500) 0%, var(--color-ink-700) 100%);
+  }
+  .team-avatar-gray {
+    background: #D6DEE6;
+  }
+  .team-role {
+    font-size: 11px;
+    color: var(--color-ink-500);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin: 6px 0 14px;
+  }
+
+  /* Process preview */
+  .process-preview {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 16px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .process-step { text-align: center; }
+  .process-num {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--color-ink-700);
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-serif);
+    font-size: 16px;
+    font-weight: 500;
+    margin: 0 auto 10px;
+  }
+  .process-num-light { background: var(--color-ink-500); }
+  .process-title {
+    font-family: var(--font-serif);
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--color-text-primary);
+    margin-bottom: 4px;
+  }
+  .process-desc { font-size: 11px; color: var(--color-text-secondary); }
+
+  /* Final CTA */
+  .final-cta { text-align: center; padding: 104px 0; }
+  .final-cta h2 { color: #FFFFFF; font-size: clamp(32px, 4vw, 44px); }
+  .final-cta-subhead {
+    color: var(--color-ink-300);
+    font-size: 17px;
+    max-width: 520px;
+    margin: 18px auto 30px;
+  }
+  .final-cta-location {
+    margin-top: 26px;
+    font-size: 12px;
+    color: rgba(168, 212, 250, 0.6);
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .stats { grid-template-columns: repeat(2, 1fr); gap: 28px; }
+    .cards-grid { grid-template-columns: 1fr; gap: 14px; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .team-grid { grid-template-columns: 1fr; max-width: 480px; }
+    .platforms-grid { grid-template-columns: 1fr; gap: 28px; }
+    .process-preview { grid-template-columns: repeat(3, 1fr); gap: 24px 12px; }
+    .testimonial-featured { padding: 28px; }
+    .testimonial-quote-featured { font-size: 18px; }
+    .hero-ctas { flex-direction: column; align-items: stretch; }
+    .hero-ctas .btn { justify-content: center; }
+  }
+</style>

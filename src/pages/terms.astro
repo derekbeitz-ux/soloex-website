@@ -1,0 +1,109 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const lastUpdated = 'April 23, 2026';
+
+const pageDesc = 'Soloex.io terms of service. Governing law is Pennsylvania.';
+---
+
+<Layout title="Terms of Service — Soloex.io" description={pageDesc}>
+
+  <section class="section-hero">
+    <div class="container-narrow">
+      <p class="eyebrow">Legal</p>
+      <h1>Terms of Service</h1>
+      <p class="updated">Last updated: {lastUpdated}</p>
+    </div>
+  </section>
+
+  <section class="section-compact">
+    <div class="container-narrow legal-prose">
+
+      <p class="lede">These terms govern your use of the Soloex.io website and any services we provide. By using the site or engaging us for services, you agree to these terms.</p>
+
+      <h2>About these terms</h2>
+      <p>"Soloex," "we," "us," and "our" refer to Soloex.io, a Salesforce and HubSpot consultancy based in Mechanicsburg, Pennsylvania. "You" refers to the person or organization using the site or engaging us for services.</p>
+
+      <h2>Use of the website</h2>
+      <p>The content of this website is provided for general informational purposes. We take reasonable care to keep it accurate and up to date, but we make no warranty that the information is complete or current. You use the site at your own risk.</p>
+      <p>You agree not to:</p>
+      <ul>
+        <li>Use the site in a way that could damage, disable, or impair it</li>
+        <li>Attempt to access any part of the site you are not authorized to access</li>
+        <li>Use automated tools to scrape, harvest, or mass-download content without written permission</li>
+        <li>Use the site or our brand to mislead others about any affiliation with Soloex</li>
+      </ul>
+
+      <h2>Services</h2>
+      <p>If you engage Soloex for consulting services, the work is governed by a separate written agreement — typically a scope document or statement of work signed by both parties. That document controls the specific deliverables, timeline, pricing, and terms of the engagement. In the event of a conflict between these site terms and a signed engagement document, the engagement document controls.</p>
+
+      <h2>Intellectual property</h2>
+      <p>All content on this website — copy, code, images, layout, and brand — is owned by Soloex.io or used with permission. You may not copy, redistribute, or repurpose it without our written consent. Third-party logos and trademarks that appear on this site are the property of their respective owners.</p>
+
+      <h2>Confidentiality</h2>
+      <p>When you share information with us through the contact form, email, or a discovery call, we treat it as confidential to the extent reasonably possible. We do not disclose client-identifying information to third parties except with your permission or as required by law.</p>
+
+      <h2>No guarantees</h2>
+      <p>We bring experience, certifications, and care to every engagement. We do not guarantee any specific business outcome that depends on factors outside our control. Any projected results, timelines, or metrics are estimates based on comparable work, not promises.</p>
+
+      <h2>Limitation of liability</h2>
+      <p>To the maximum extent permitted by law, Soloex.io is not liable for indirect, incidental, consequential, or punitive damages arising out of your use of the website. Our total liability for any claim related to the website is limited to $100, unless a separate engagement agreement specifies a different limit.</p>
+
+      <h2>Third-party links and services</h2>
+      <p>The site may link to third-party websites (for example, Calendly, LinkedIn, or Upwork). We do not control those sites and are not responsible for their content, privacy practices, or availability.</p>
+
+      <h2>Changes to the site</h2>
+      <p>We may modify, add to, or remove features and content on the website at any time without notice.</p>
+
+      <h2>Termination</h2>
+      <p>We may restrict access to the website at our discretion if you violate these terms or engage in abusive or unlawful behavior.</p>
+
+      <h2>Governing law and venue</h2>
+      <p>These terms are governed by the laws of the Commonwealth of Pennsylvania, United States, without regard to its conflict-of-laws provisions. You agree that any dispute arising out of or relating to these terms or the website will be resolved exclusively in the state or federal courts located in Cumberland County, Pennsylvania.</p>
+
+      <h2>Contact</h2>
+      <p>Questions about these terms? Email <a href="mailto:operations@soloex.io">operations@soloex.io</a>.</p>
+
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  .updated {
+    color: var(--color-text-secondary);
+    font-size: 14px;
+    margin-top: 8px;
+  }
+  .legal-prose h2 {
+    font-size: clamp(22px, 2vw, 26px);
+    margin-top: 40px;
+    margin-bottom: 12px;
+  }
+  .legal-prose h3 {
+    font-size: 17px;
+    font-family: var(--font-sans);
+    font-weight: 500;
+    color: var(--color-ink-700);
+    margin-top: 24px;
+    margin-bottom: 8px;
+  }
+  .legal-prose p,
+  .legal-prose li {
+    color: var(--color-text-primary);
+    font-size: 16px;
+    line-height: 1.7;
+  }
+  .legal-prose p { margin-bottom: 14px; }
+  .legal-prose ul {
+    margin: 0 0 14px;
+    padding-left: 20px;
+    list-style: disc;
+  }
+  .legal-prose ul li { margin-bottom: 6px; }
+  .legal-prose .lede {
+    font-size: 18px;
+    color: var(--color-text-secondary);
+    margin-bottom: 8px;
+  }
+</style>

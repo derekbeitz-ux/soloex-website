@@ -1,0 +1,139 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const lastUpdated = 'April 23, 2026';
+
+const pageDesc = 'Soloex.io privacy policy. What we collect, how we use it, your choices, and how to get in touch.';
+---
+
+<Layout title="Privacy Policy — Soloex.io" description={pageDesc}>
+
+  <section class="section-hero">
+    <div class="container-narrow">
+      <p class="eyebrow">Legal</p>
+      <h1>Privacy Policy</h1>
+      <p class="updated">Last updated: {lastUpdated}</p>
+    </div>
+  </section>
+
+  <section class="section-compact">
+    <div class="container-narrow legal-prose">
+
+      <p class="lede">This policy explains what information Soloex.io collects when you use our website and contact us, how we use that information, and the choices you have. It is written to be readable in plain English.</p>
+
+      <h2>Who we are</h2>
+      <p>Soloex.io is a Salesforce and HubSpot consultancy based in Mechanicsburg, Pennsylvania, United States. In this policy, "we," "us," and "our" refer to Soloex.io.</p>
+
+      <h2>Information we collect</h2>
+      <p>We collect information in two ways:</p>
+
+      <h3>Contact form and email</h3>
+      <p>When you fill out our contact form or email us directly, we collect the information you choose to provide — typically your name, email address, company name (if given), and the content of your message. This is voluntary and entirely up to you.</p>
+
+      <h3>Website analytics</h3>
+      <p>We use Cloudflare Web Analytics to understand how our website is used. Cloudflare Web Analytics is cookieless and privacy-first — it does not use client-side state, does not track visitors across sites, and does not fingerprint devices. It collects aggregated metrics such as page views, referrers, and country-level location. No cookies are set on your device for analytics, and no personal information is collected.</p>
+
+      <h2>How we use your information</h2>
+      <p>We use the information you provide to:</p>
+      <ul>
+        <li>Reply to your inquiry and continue the conversation you started</li>
+        <li>Schedule and prepare for a discovery call</li>
+        <li>Send you occasional follow-up emails related to the inquiry you made</li>
+        <li>Improve how our website communicates with visitors (aggregated analytics only)</li>
+      </ul>
+
+      <h2>Marketing and follow-up emails</h2>
+      <p>If you contact us, we may send you follow-up emails related to your inquiry. We do not add you to a bulk marketing newsletter without a separate, explicit opt-in.</p>
+      <p>Every follow-up email from us will include a way to opt out. At any time, you can reply to any email from us with "unsubscribe" or "stop" and we will not reach out again. You can also email <a href="mailto:operations@soloex.io">operations@soloex.io</a> to be removed from any list we maintain.</p>
+
+      <h2>Cookies</h2>
+      <p>Our site does not set cookies for tracking or advertising. Cloudflare Web Analytics is cookieless. If our hosting provider sets a security-related cookie (for example, to protect against abuse), it is used only for that purpose and is not shared with us or third parties.</p>
+
+      <h2>How we share your information</h2>
+      <p>We do not sell your personal information. We do not share it with advertisers. We use a small number of service providers to run the business — for example, our email provider and our form-handling service — and your information passes through them only for the purpose of delivering your message to us.</p>
+      <p>Services we currently use include:</p>
+      <ul>
+        <li><strong>Cloudflare</strong> — hosting and analytics</li>
+        <li><strong>Web3Forms</strong> — contact form delivery</li>
+        <li><strong>Google Workspace</strong> — email hosting</li>
+        <li><strong>Calendly</strong> — scheduling discovery calls</li>
+      </ul>
+      <p>Each of these providers has its own privacy policy. We recommend reading them if you'd like more detail.</p>
+
+      <h2>Data retention</h2>
+      <p>We keep contact-form and email correspondence for as long as it is useful for the business relationship. You can ask us to delete your information at any time by emailing <a href="mailto:operations@soloex.io">operations@soloex.io</a>.</p>
+
+      <h2>Your choices and rights</h2>
+      <p>You can:</p>
+      <ul>
+        <li>Ask us what information we hold about you</li>
+        <li>Ask us to correct or delete information we hold about you</li>
+        <li>Opt out of any follow-up emails</li>
+        <li>Decline to provide information in the first place — the choice is always yours</li>
+      </ul>
+      <p>To make any of these requests, email <a href="mailto:operations@soloex.io">operations@soloex.io</a>. We'll respond within a reasonable timeframe.</p>
+
+      <h2>Children</h2>
+      <p>Our services are not directed at children under 13, and we do not knowingly collect information from them.</p>
+
+      <h2>Governing law</h2>
+      <p>This policy, and any disputes related to it, are governed by the laws of the Commonwealth of Pennsylvania, United States, without regard to its conflict-of-laws provisions.</p>
+
+      <h2>Changes to this policy</h2>
+      <p>If we update this policy, we'll change the "last updated" date at the top. Material changes will be flagged on our homepage for at least 30 days.</p>
+
+      <h2>Contact</h2>
+      <p>Questions about this policy? Email <a href="mailto:operations@soloex.io">operations@soloex.io</a> or write to us at:</p>
+      <address>
+        Soloex.io<br>
+        Mechanicsburg, Pennsylvania<br>
+        United States
+      </address>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  .updated {
+    color: var(--color-text-secondary);
+    font-size: 14px;
+    margin-top: 8px;
+  }
+  .legal-prose h2 {
+    font-size: clamp(22px, 2vw, 26px);
+    margin-top: 40px;
+    margin-bottom: 12px;
+  }
+  .legal-prose h3 {
+    font-size: 17px;
+    font-family: var(--font-sans);
+    font-weight: 500;
+    color: var(--color-ink-700);
+    margin-top: 24px;
+    margin-bottom: 8px;
+  }
+  .legal-prose p,
+  .legal-prose li {
+    color: var(--color-text-primary);
+    font-size: 16px;
+    line-height: 1.7;
+  }
+  .legal-prose p { margin-bottom: 14px; }
+  .legal-prose ul {
+    margin: 0 0 14px;
+    padding-left: 20px;
+    list-style: disc;
+  }
+  .legal-prose ul li { margin-bottom: 6px; }
+  .legal-prose address {
+    font-style: normal;
+    color: var(--color-text-secondary);
+    margin-top: 10px;
+  }
+  .legal-prose .lede {
+    font-size: 18px;
+    color: var(--color-text-secondary);
+    margin-bottom: 8px;
+  }
+</style>

@@ -1,0 +1,205 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const CALENDLY_URL = 'https://calendly.com/derek-beitz-soloex/30min';
+const LINKEDIN_URL = 'https://www.linkedin.com/company/soloex-io/';
+const UPWORK_URL = 'https://www.upwork.com/freelancers/~01a68484f6725225f8';
+
+// PLACEHOLDER: Replace with your real Web3Forms access key (free at web3forms.com). See TODO.md.
+const WEB3FORMS_ACCESS_KEY = 'YOUR_WEB3FORMS_ACCESS_KEY';
+
+const pageDesc = "Tell us what's broken. Free 30-minute call. No pressure. Just a conversation about your CRM, your team, and whether Soloex is the right fit.";
+---
+
+<Layout title="Contact — Soloex.io" description={pageDesc} active="contact">
+
+  <section class="section-hero">
+    <div class="container-narrow">
+      <p class="eyebrow">Contact</p>
+      <h1>Tell us what's broken.</h1>
+      <p class="lede">The kickoff call is free. Thirty minutes. No pressure. Just a conversation about your CRM, your team, and whether Soloex is the right fit.</p>
+    </div>
+  </section>
+
+  <section class="section-compact">
+    <div class="container">
+      <div class="contact-grid">
+
+        <div class="contact-col">
+          <h2 class="sub-h2">Book a time</h2>
+          <p>Grab any open slot on the calendar. No form required.</p>
+          <a href={CALENDLY_URL} target="_blank" rel="noopener" class="btn btn-primary btn-large">Book a free call →</a>
+
+          <div class="contact-divider"><span>or</span></div>
+
+          <h2 class="sub-h2">Prefer email first?</h2>
+          <p>Send a note to <a href="mailto:derek.beitz@soloex.io">derek.beitz@soloex.io</a> and we'll reply within one business day.</p>
+          <p class="muted-note">For billing or account questions: <a href="mailto:operations@soloex.io">operations@soloex.io</a></p>
+
+          <div class="contact-direct">
+            <div class="fact-row"><span class="fact-label">Phone</span><a href="tel:+17176096032">(717) 609-6032</a></div>
+            <div class="fact-row"><span class="fact-label">Location</span><span>Mechanicsburg, Pennsylvania</span></div>
+            <div class="fact-row">
+              <span class="fact-label">Find us</span>
+              <span class="links">
+                <a href={LINKEDIN_URL} target="_blank" rel="noopener">LinkedIn</a>
+                <span aria-hidden="true">·</span>
+                <a href={UPWORK_URL} target="_blank" rel="noopener">Upwork</a>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-col contact-form-col">
+          <div class="card form-card">
+            <h2 class="sub-h2">Or drop us a note</h2>
+            <p class="muted-note">Fill this out and we'll reply within one business day.</p>
+
+            <form action="https://api.web3forms.com/submit" method="POST" class="form" id="contact-form">
+              <input type="hidden" name="access_key" value={WEB3FORMS_ACCESS_KEY} />
+              <input type="hidden" name="subject" value="New Soloex.io contact form submission" />
+              <input type="hidden" name="from_name" value="Soloex.io contact form" />
+              <input type="checkbox" name="botcheck" class="hidden-field" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+              <div class="form-row">
+                <label for="name">Name <span aria-hidden="true">*</span></label>
+                <input id="name" name="name" type="text" required autocomplete="name" />
+              </div>
+
+              <div class="form-row">
+                <label for="email">Email <span aria-hidden="true">*</span></label>
+                <input id="email" name="email" type="email" required autocomplete="email" />
+              </div>
+
+              <div class="form-row">
+                <label for="company">Company</label>
+                <input id="company" name="company" type="text" autocomplete="organization" />
+              </div>
+
+              <div class="form-row">
+                <label for="message">What's broken? <span aria-hidden="true">*</span></label>
+                <textarea id="message" name="message" required rows="5"></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-large form-submit">Send →</button>
+              <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+              <p class="form-privacy">By submitting, you agree to our <a href="/privacy">privacy policy</a>. We'll only use your information to reply to you.</p>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  .lede {
+    font-size: 19px;
+    color: var(--color-text-secondary);
+    margin-top: 18px;
+    max-width: 620px;
+  }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 56px;
+    align-items: start;
+  }
+  .sub-h2 { font-size: clamp(22px, 2vw, 26px); margin-bottom: 12px; }
+  .contact-col p { color: var(--color-text-secondary); font-size: 16px; margin-bottom: 16px; }
+  .muted-note { font-size: 14px; color: var(--color-text-secondary); margin-top: 10px; }
+
+  .contact-divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 40px 0 24px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--color-text-tertiary);
+  }
+  .contact-divider::before,
+  .contact-divider::after {
+    content: '';
+    flex: 1;
+    height: 0.5px;
+    background: var(--color-border-soft);
+  }
+
+  .contact-direct {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 0.5px solid var(--color-border-soft);
+  }
+  .fact-row {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 16px;
+    align-items: baseline;
+    font-size: 14px;
+  }
+  .fact-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--color-ink-500);
+    font-weight: 500;
+  }
+  .links a { margin-right: 6px; }
+
+  .form-card { padding: 32px; }
+  .form { display: flex; flex-direction: column; gap: 14px; margin-top: 14px; }
+  .form-row { display: flex; flex-direction: column; gap: 6px; }
+  .form-submit { align-self: flex-start; margin-top: 6px; }
+  .form-status { font-size: 14px; margin-top: 8px; min-height: 1.2em; }
+  .form-status.is-success { color: var(--color-ink-700); font-weight: 500; }
+  .form-status.is-error { color: #B42318; }
+  .form-privacy { font-size: 12px; color: var(--color-text-tertiary); margin-top: 8px; }
+  .form-privacy a { color: var(--color-text-secondary); text-decoration: underline; }
+
+  .hidden-field {
+    position: absolute;
+    left: -10000px;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+  }
+
+  @media (max-width: 820px) {
+    .contact-grid { grid-template-columns: 1fr; gap: 36px; }
+    .form-card { padding: 24px; }
+  }
+</style>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement | null;
+  const status = document.getElementById('form-status');
+  if (form && status) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      status.className = 'form-status';
+      status.textContent = 'Sending…';
+      const data = new FormData(form);
+      try {
+        const res = await fetch(form.action, { method: 'POST', body: data, headers: { Accept: 'application/json' } });
+        if (res.ok) {
+          form.reset();
+          status.classList.add('is-success');
+          status.textContent = "Thanks — we'll reply within one business day.";
+        } else {
+          status.classList.add('is-error');
+          status.textContent = "Something went wrong. Please email derek.beitz@soloex.io directly.";
+        }
+      } catch {
+        status.classList.add('is-error');
+        status.textContent = "Couldn't reach the form service. Please email derek.beitz@soloex.io directly.";
+      }
+    });
+  }
+</script>
