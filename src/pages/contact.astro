@@ -11,7 +11,7 @@ const WEB3FORMS_ACCESS_KEY = 'YOUR_WEB3FORMS_ACCESS_KEY';
 const pageDesc = "Tell us what's broken. Free 30-minute call. No pressure. Just a conversation about your CRM, your team, and whether Soloex is the right fit.";
 ---
 
-<Layout title="Contact — Soloex.io" description={pageDesc} active="contact">
+<Layout title="Contact - Soloex.io" description={pageDesc} active="contact">
 
   <section class="section-hero">
     <div class="container-narrow">
@@ -191,7 +191,7 @@ const pageDesc = "Tell us what's broken. Free 30-minute call. No pressure. Just 
         if (res.ok) {
           form.reset();
           status.classList.add('is-success');
-          status.textContent = "Thanks — we'll reply within one business day.";
+          status.textContent = "Thanks - we'll reply within one business day.";
         } else {
           status.classList.add('is-error');
           status.textContent = "Something went wrong. Please email derek.beitz@soloex.io directly.";
