@@ -21,17 +21,24 @@ Track every placeholder that needs a real value, and every post-launch task that
 
 ---
 
+## This week — shipping now without them
+
+These are shipping to production without the final piece in place. Swap them in as soon as the missing piece lands.
+
+### Testimonial attributions (homepage Section 9)
+- File: `src/pages/index.astro`, `testimonials` array.
+- Current state: initials + role only (`— J.M., VP of Operations`, etc.). Quotes are real Upwork 5-star reviews. No fake company names on the page.
+- Missing piece: explicit permission from each of the three reviewers to use their full names + company names publicly.
+- Action: send the request template in `docs/03-copy-and-content-bank.md` §7.4 to each reviewer. Once permission comes back, add `name` and `company` fields to the testimonial objects and update the template to render `— First L., Role, Company`.
+
+---
+
 ## Placeholders to replace
 
 ### Project highlights (homepage Section 8)
 - File: `src/pages/index.astro`, `projects` array.
 - Each of the three entries is marked `PLACEHOLDER` with an example shape.
 - Action: replace each with a real single-sentence outcome and a concrete metric.
-
-### Testimonial attributions (homepage Section 9)
-- File: `src/pages/index.astro`, `testimonials` array.
-- Current: initials + role + `PLACEHOLDER Company`.
-- Action: for each Upwork testimonial, use the template in `Soloex.io Website Build/03-copy-and-content-bank.md` §7.4 to request permission, then swap in the reviewer's first name, last initial, title, and company.
 
 ### Footer badges
 - File: `src/components/Footer.astro`.

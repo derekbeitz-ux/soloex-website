@@ -64,14 +64,12 @@ const projects = [
   },
 ];
 
-// Testimonial attributions: initials + role + company, pending permission from reviewers.
-// PLACEHOLDER — replace with real attributions once clients grant permission (see docs/03 §7.4 template).
+// Real Upwork 5-star reviews. Initials + role only until reviewers grant permission to use their full names and company names.
 const testimonials = [
   {
     quote: "His knowledge of the Salesforce Platform outperformed that of a hired agency recommended by Salesforce. If you need an innovator to get the most out of the Salesforce environment, Derek is my first choice.",
     initials: 'J.M.',
     role: 'VP of Operations',
-    company: 'PLACEHOLDER Company',
     tags: [],
     featured: true,
   },
@@ -79,7 +77,6 @@ const testimonials = [
     quote: "Derek is extremely helpful — not just because of his skill set but his genuine desire to help you solve problems. His 'get it done' attitude is remarkable.",
     initials: 'S.R.',
     role: 'Founder',
-    company: 'PLACEHOLDER Co.',
     tags: ['Solution Oriented'],
     featured: false,
   },
@@ -87,7 +84,6 @@ const testimonials = [
     quote: "Would highly recommend Derek to anyone who needs support with their Account Engagement implementation.",
     initials: 'K.T.',
     role: 'Marketing Director',
-    company: 'PLACEHOLDER Inc.',
     tags: ['Collaborative', 'Clear Communicator', 'Detail Oriented'],
     featured: false,
   },
@@ -284,7 +280,6 @@ const pageDesc = 'Soloex is a Salesforce and HubSpot consultancy for companies i
   </section>
 
   <!-- 9. TESTIMONIALS -->
-  <!-- PLACEHOLDER attributions: initials + role + company. Replace with real names once clients grant permission. -->
   <section class="section-tinted">
     <div class="container">
       <div class="section-header">
@@ -296,7 +291,7 @@ const pageDesc = 'Soloex is a Salesforce and HubSpot consultancy for companies i
           <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
           <blockquote class="testimonial-quote testimonial-quote-featured">"{t.quote}"</blockquote>
           <div class="testimonial-meta">
-            <span class="testimonial-attr">— {t.initials}, {t.role}, {t.company}</span>
+            <span class="testimonial-attr">— {t.initials}, {t.role}</span>
             <span class="testimonial-source">Upwork · verified</span>
           </div>
         </div>
@@ -311,7 +306,7 @@ const pageDesc = 'Soloex is a Salesforce and HubSpot consultancy for companies i
                 {t.tags.map((tag) => <span class="pill">{tag}</span>)}
               </div>
             )}
-            <div class="testimonial-attr">— {t.initials}, {t.role}, {t.company}</div>
+            <div class="testimonial-attr">— {t.initials}, {t.role}</div>
             <div class="testimonial-source">Upwork · verified</div>
           </div>
         ))}
