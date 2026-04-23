@@ -23,12 +23,6 @@ Track every placeholder that needs a real value, and every post-launch task that
 
 ## Placeholders to replace
 
-### 10 neutral logo tiles (homepage Section 4)
-- File: `src/pages/index.astro`, `clientLogos` array near the top.
-- Current: 10 neutral placeholder names (`CLIENT ONE`, `Northpoint`, `Apex Labs`, etc.).
-- Action: swap in real client names — and when you have SVG/PNG files, create `src/components/LogoCarousel.astro` that takes image paths, then drop logos into `public/logos/`.
-- **Get written permission from each client before their logo goes live.**
-
 ### Project highlights (homepage Section 8)
 - File: `src/pages/index.astro`, `projects` array.
 - Each of the three entries is marked `PLACEHOLDER` with an example shape.
@@ -47,6 +41,16 @@ Track every placeholder that needs a real value, and every post-launch task that
 - File: `src/components/Footer.astro`.
 - Current: text pills `WBENC certified` and `Salesforce Partner`.
 - Action: download badge SVGs from WBENC and the Salesforce Partner Community, save to `public/badges/wbenc.svg` and `public/badges/salesforce.svg`, swap the text pills for `<img>` tags.
+
+---
+
+## Deferred — add post-launch
+
+### Client logo carousel (originally homepage Section 4)
+- The carousel section was removed from the homepage entirely at launch — no placeholder tiles, no stub section.
+- When real logos are ready, rebuild it as a `<LogoCarousel>` component at `src/components/LogoCarousel.astro` that takes an array of image paths + alt text, and drop the files into `public/logos/`.
+- Slot it back into `src/pages/index.astro` between Section 3 (Upwork proof bar) and Section 5 (The Problem), and re-point the hero's "See our work" secondary CTA from `#work` to the carousel's anchor if desired.
+- **Get written permission from each client before their logo goes live.**
 
 ---
 

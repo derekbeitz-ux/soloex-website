@@ -5,20 +5,6 @@ const CALENDLY_URL = 'https://calendly.com/derek-beitz-soloex/30min';
 const UPWORK_URL = 'https://www.upwork.com/freelancers/~01a68484f6725225f8';
 const LINKEDIN_DEREK = 'https://www.linkedin.com/in/derekbeitz/';
 
-// 10 neutral placeholder logo tiles — swap with real client logos + written permission pre-launch.
-const clientLogos = [
-  { name: 'CLIENT ONE',    style: 'caps' },
-  { name: 'Northpoint',    style: 'serif' },
-  { name: 'Apex Labs',     style: 'sans' },
-  { name: 'Meridian',      style: 'italic' },
-  { name: 'Halcyon',       style: 'serif' },
-  { name: 'Fieldwork Co.', style: 'sans' },
-  { name: 'Bellweather',   style: 'serif' },
-  { name: 'Ironridge',     style: 'caps' },
-  { name: 'Cascade',       style: 'italic' },
-  { name: 'Summit House',  style: 'mono' },
-];
-
 const problems = [
   {
     title: "You inherited something broken.",
@@ -126,7 +112,7 @@ const pageDesc = 'Soloex is a Salesforce and HubSpot consultancy for companies i
         <p class="hero-subhead">Salesforce and HubSpot consulting without the agency overhead. 100+ projects delivered. Women-owned. WBENC certified.</p>
         <div class="hero-ctas">
           <a href={CALENDLY_URL} class="btn btn-primary btn-large" target="_blank" rel="noopener">Fix my CRM →</a>
-          <a href="#proof" class="btn btn-secondary btn-large">See our work</a>
+          <a href="#work" class="btn btn-secondary btn-large">See our work</a>
         </div>
       </div>
     </div>
@@ -171,20 +157,7 @@ const pageDesc = 'Soloex is a Salesforce and HubSpot consultancy for companies i
     </div>
   </section>
 
-  <!-- 4. CLIENT LOGO CAROUSEL -->
-  <!-- PLACEHOLDER: 10 neutral logo tiles. Replace with real client logos + written permission pre-launch. -->
-  <section id="proof" class="logo-section">
-    <div class="container">
-      <p class="eyebrow text-center">Trusted by leading teams</p>
-    </div>
-    <div class="logo-carousel" aria-hidden="true">
-      <div class="logo-track">
-        {[...clientLogos, ...clientLogos].map((logo) => (
-          <div class={`logo-tile style-${logo.style}`}>{logo.name}</div>
-        ))}
-      </div>
-    </div>
-  </section>
+  <!-- Section 4 (client logo carousel) deferred. Will be rebuilt as a <LogoCarousel> component when real logos + written permission land. See TODO.md. -->
 
   <!-- 5. THE PROBLEM -->
   <section class="section-tinted">
@@ -290,7 +263,7 @@ const pageDesc = 'Soloex is a Salesforce and HubSpot consultancy for companies i
 
   <!-- 8. PROOF / PROJECT HIGHLIGHTS -->
   <!-- PLACEHOLDER: 3 project highlights. Replace with real, numbered outcomes pre-launch. See TODO.md. -->
-  <section>
+  <section id="work">
     <div class="container">
       <div class="section-header">
         <p class="eyebrow">Selected work</p>
@@ -474,15 +447,6 @@ const pageDesc = 'Soloex is a Salesforce and HubSpot consultancy for companies i
     margin-left: 6px;
   }
   .stars-small { font-size: 13px; margin-bottom: 12px; }
-
-  /* Logo carousel */
-  .logo-section { padding: 64px 0; overflow: hidden; }
-  .logo-carousel {
-    margin-top: 28px;
-    overflow: hidden;
-    mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
-    -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
-  }
 
   /* Cards */
   .cards-grid {
