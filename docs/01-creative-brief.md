@@ -25,7 +25,7 @@ The name carries a three-layer meaning that is **not publicly disclosed on the s
 
 **Brand archetype:** Sage / Guide. The wise counselor who has walked the path and leads others through.
 
-**Faith treatment on the site:** Level A1 (quietly present). No public references to the biblical origin. The wisdom and guidance energy is baked into the voice and positioning, not explained. May be revisited later.
+**Faith treatment on the site:** The biblical etymology of the name (Solomon / Exodus) stays private — not surfaced in marketing copy. The founders' personal backstory is surfaced on the About page, including that Derek and Kristin met on a college missions trip in Africa. This replaces the earlier Level A1 "no public faith references" stance (retired 2026-04-23). Scripture, doctrine, and faith-based sales framing remain off-limits everywhere on the site.
 
 ### 1.3 Positioning
 Soloex is a Salesforce and HubSpot consultancy for companies in **CRM distress** — bad implementations, outgrown systems, and tech stack exhaustion. The firm migrates, rebuilds, and optimizes based on industry best practices and 100+ projects of hands-on experience.
@@ -63,7 +63,7 @@ Derek started building his own client book after hours. When it grew large enoug
 - Excessive disclaimers or hedging
 - ALL CAPS anywhere
 - Exclamation points as default punctuation
-- Any faith references in public copy (for now)
+- Scripture, doctrine, or faith-based sales framing in any copy (the About page may surface the founders' personal backstory, including the missions-trip origin — that's the only place faith-adjacent content appears; see §1.2)
 - Claiming Soloex is Summit-tier (we are a **certified partner**, and Derek **trained at** a Summit Partner)
 - "5 years of experience" — drop from stats strip entirely; use "100+ projects" instead
 

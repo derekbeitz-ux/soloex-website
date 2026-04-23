@@ -198,7 +198,11 @@ Layout: 2×2 grid on desktop, stacking to a single column on mobile.
 >
 > He was doing every part of the job. Now it was time to go out on his own.
 >
-> In August 2024, Derek and his wife Kristin went full-time on Soloex. He does the work he was already doing — just directly, for the client. Kristin runs operations, books, and billing.
+> Derek and Kristin's story started long before Soloex. They met in Africa on a college missions trip, and not long after, Soloex was born as an idea. For years, they worked, traveled the country, and built toward something of their own — until they decided to go all in, full-time, and build both a business and a family.
+>
+> In August 2024, they made it official.
+>
+> Derek does the work he was already known for — just directly, for the client. Kristin runs operations, books, and billing, keeping everything behind the scenes running smoothly.
 >
 > Women-owned, WBENC certified. The bet is simple: when you hire Soloex, you hire the person who's going to build it. Not a pitch deck. Not a junior handed your project after the closer signs.
 >
