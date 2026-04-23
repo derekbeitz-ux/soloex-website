@@ -47,20 +47,22 @@ const services = [
   },
 ];
 
-// PLACEHOLDER project highlights. Replace each with a real, numbered outcome pre-launch.
-// Format: single sentence, crisp metric where possible.
 const projects = [
   {
-    tag: 'Migration',
-    body: 'PLACEHOLDER — describe a real migration with a concrete outcome. Example shape: <strong>Migrated [N]-contact Salesforce org to HubSpot</strong> in [N] weeks. Zero data loss.',
+    eyebrow: 'Healthcare migration · Australia',
+    body: "Moved a women's health company from Salesforce to HubSpot. Six weeks, end to end.",
   },
   {
-    tag: 'Implementation',
-    body: 'PLACEHOLDER — describe a real implementation with a concrete outcome. Example shape: <strong>Built a unified Sales Cloud + Account Engagement instance</strong> for [industry/company]. Reduced [metric] by [N]%.',
+    eyebrow: 'University CRM rebuild · United Kingdom',
+    body: "Rebuilt a university's admissions CRM on Sales Cloud from the ground up.",
   },
   {
-    tag: 'Optimization',
-    body: 'PLACEHOLDER — describe a real optimization with a concrete outcome. Example shape: <strong>Consolidated [N] tools into a single HubSpot instance.</strong> Cut [N] recurring software costs.',
+    eyebrow: 'University implementation · Michigan',
+    body: 'Full operation on Education Cloud and Marketing Cloud Account Engagement — open enrollments, transcript intake, tuition tracking, all in one system.',
+  },
+  {
+    eyebrow: 'Tech stack consolidation · Washington',
+    body: 'Consolidated a startup from six tools into Marketing Cloud Account Engagement. Top and middle of funnel streamlined. Budget freed up for additional BDRs.',
   },
 ];
 
@@ -261,19 +263,18 @@ const pageDesc = 'Soloex is a Salesforce and HubSpot consultancy for companies i
   </section>
 
   <!-- 8. PROOF / PROJECT HIGHLIGHTS -->
-  <!-- PLACEHOLDER: 3 project highlights. Replace with real, numbered outcomes pre-launch. See TODO.md. -->
   <section id="work">
     <div class="container">
       <div class="section-header">
         <p class="eyebrow">Selected work</p>
         <h2>Projects that moved the number.</h2>
       </div>
-      <div class="cards-grid">
+      <div class="projects-grid">
         {projects.map((p) => (
-          <div class="card">
-            <div class="project-tag">{p.tag}</div>
-            <p set:html={p.body}></p>
-          </div>
+          <article class="card project-card">
+            <p class="project-eyebrow">{p.eyebrow}</p>
+            <p class="project-body">{p.body}</p>
+          </article>
         ))}
       </div>
     </div>
@@ -532,13 +533,28 @@ const pageDesc = 'Soloex is a Salesforce and HubSpot consultancy for companies i
   }
 
   /* Projects */
-  .project-tag {
-    font-size: 10px;
-    letter-spacing: 0.16em;
-    color: var(--color-ink-500);
-    text-transform: uppercase;
-    font-weight: 500;
-    margin-bottom: 12px;
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  .project-card {
+    padding: 32px;
+  }
+  .project-eyebrow {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-ink-700);
+    margin: 0 0 10px;
+    letter-spacing: 0;
+  }
+  .project-body {
+    font-size: 16px;
+    color: var(--color-text-primary);
+    line-height: 1.6;
+    margin: 0;
   }
 
   /* Testimonials */
@@ -674,6 +690,7 @@ const pageDesc = 'Soloex is a Salesforce and HubSpot consultancy for companies i
   @media (max-width: 900px) {
     .stats { grid-template-columns: repeat(2, 1fr); gap: 28px; }
     .cards-grid { grid-template-columns: 1fr; gap: 14px; }
+    .projects-grid { grid-template-columns: 1fr; gap: 14px; }
     .testimonials-grid { grid-template-columns: 1fr; }
     .team-grid { grid-template-columns: 1fr; max-width: 480px; }
     .platforms-grid { grid-template-columns: 1fr; gap: 28px; }

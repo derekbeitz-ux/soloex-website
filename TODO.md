@@ -35,11 +35,6 @@ These are shipping to production without the final piece in place. Swap them in 
 
 ## Placeholders to replace
 
-### Project highlights (homepage Section 8)
-- File: `src/pages/index.astro`, `projects` array.
-- Each of the three entries is marked `PLACEHOLDER` with an example shape.
-- Action: replace each with a real single-sentence outcome and a concrete metric.
-
 ### Footer badges
 - File: `src/components/Footer.astro`.
 - Current: text pills `WBENC certified` and `Salesforce Partner`.

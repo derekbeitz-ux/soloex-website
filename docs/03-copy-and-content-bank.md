@@ -135,6 +135,30 @@ Edit note: replace "Five years in" with either "Nearly five years in" or drop it
 
 ---
 
+### 7A. Project Highlights (Homepage Section 8)
+
+Four real project highlights — locked in for launch. Each card uses an eyebrow line (project type · geography) and a one-to-two-sentence body.
+
+**Card 1**
+- **Eyebrow:** Healthcare migration · Australia
+- **Body:** Moved a women's health company from Salesforce to HubSpot. Six weeks, end to end.
+
+**Card 2**
+- **Eyebrow:** University CRM rebuild · United Kingdom
+- **Body:** Rebuilt a university's admissions CRM on Sales Cloud from the ground up.
+
+**Card 3**
+- **Eyebrow:** University implementation · Michigan
+- **Body:** Full operation on Education Cloud and Marketing Cloud Account Engagement — open enrollments, transcript intake, tuition tracking, all in one system.
+
+**Card 4**
+- **Eyebrow:** Tech stack consolidation · Washington
+- **Body:** Consolidated a startup from six tools into Marketing Cloud Account Engagement. Top and middle of funnel streamlined. Budget freed up for additional BDRs.
+
+Layout: 2×2 grid on desktop, stacking to a single column on mobile.
+
+---
+
 ### 7.4 Testimonial request template (for Derek to send)
 
 > *Hi [Client Name],*
