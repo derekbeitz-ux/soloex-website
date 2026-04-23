@@ -1,5 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import derekImg from '../assets/derek.jpg';
+import kristinImg from '../assets/kristin.jpg';
 
 const CALENDLY_URL = 'https://calendly.com/derek-beitz-soloex/30min';
 const LINKEDIN_DEREK = 'https://www.linkedin.com/in/derekbeitz/';
@@ -39,16 +42,32 @@ const pageDesc = 'Soloex is a Salesforce and HubSpot consultancy founded by Dere
       </div>
       <div class="team-grid">
         <div class="card team-card">
-          <!-- PLACEHOLDER: Derek headshot. Replace gradient avatar with <img src="/derek.jpg" alt="Derek Beitz, founder of Soloex" class="team-avatar" />. -->
-          <div class="team-avatar team-avatar-derek" aria-hidden="true">DB</div>
+          <Image
+            src={derekImg}
+            alt="Derek Beitz, founder of Soloex"
+            width={224}
+            height={224}
+            densities={[1, 2]}
+            loading="lazy"
+            decoding="async"
+            class="team-avatar"
+          />
           <h3>Derek Beitz</h3>
           <div class="team-role">Founder &amp; Technical Lead</div>
           <p>Salesforce and HubSpot certified. Former consultant at a Summit-tier Salesforce Partner. Member of Salesforce's Automotive Cloud beta testing program. Leads every client engagement from discovery through go-live.</p>
           <a href={LINKEDIN_DEREK} target="_blank" rel="noopener" class="inline-link">LinkedIn →</a>
         </div>
         <div class="card team-card">
-          <!-- PLACEHOLDER: Kristin headshot. Gray circle for now. Replace with <img src="/kristin.jpg" alt="Kristin Beitz, co-founder of Soloex" class="team-avatar" />. -->
-          <div class="team-avatar team-avatar-gray" aria-hidden="true"></div>
+          <Image
+            src={kristinImg}
+            alt="Kristin Beitz, co-founder of Soloex"
+            width={224}
+            height={224}
+            densities={[1, 2]}
+            loading="lazy"
+            decoding="async"
+            class="team-avatar"
+          />
           <h3>Kristin Beitz</h3>
           <div class="team-role">Co-founder &amp; Operations</div>
           <p>Runs operations, books, and billing. The reason Derek stays in the technical work instead of the spreadsheet. Women-owned, WBENC certified.</p>
@@ -156,18 +175,13 @@ const pageDesc = 'Soloex is a Salesforce and HubSpot consultancy founded by Dere
     height: 112px;
     border-radius: 50%;
     margin: 0 auto 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--font-serif);
-    font-size: 36px;
-    font-weight: 500;
-    color: #FFFFFF;
+    display: block;
+    object-fit: cover;
+    object-position: center 22%;
+    background: #E8EEF4;
+    border: 3px solid #FFFFFF;
+    box-shadow: 0 0 0 1px var(--color-border), 0 6px 20px rgba(5, 26, 43, 0.08);
   }
-  .team-avatar-derek {
-    background: linear-gradient(135deg, var(--color-ink-500) 0%, var(--color-ink-700) 100%);
-  }
-  .team-avatar-gray { background: #D6DEE6; }
   .team-role {
     font-size: 11px;
     color: var(--color-ink-500);

@@ -33,10 +33,6 @@ Track every placeholder that needs a real value, and every post-launch task that
 - Current: initials + role + `PLACEHOLDER Company`.
 - Action: for each Upwork testimonial, use the template in `Soloex.io Website Build/03-copy-and-content-bank.md` §7.4 to request permission, then swap in the reviewer's first name, last initial, title, and company.
 
-### Headshots
-- Kristin: currently a plain gray circle on `/` and `/about`. Once a photo is ready, add `public/kristin.jpg` and replace `<div class="team-avatar team-avatar-gray" aria-hidden="true"></div>` with `<img src="/kristin.jpg" alt="Kristin Beitz, co-founder of Soloex" class="team-avatar" />` (the HTML comments on each page call this out).
-- Derek: currently shows `DB` in a gradient circle. When a photo is ready, swap similarly.
-
 ### Footer badges
 - File: `src/components/Footer.astro`.
 - Current: text pills `WBENC certified` and `Salesforce Partner`.
