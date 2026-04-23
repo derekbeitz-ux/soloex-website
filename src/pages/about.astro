@@ -1,8 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { Image } from 'astro:assets';
+import { Image, Picture } from 'astro:assets';
 import derekImg from '../assets/derek.jpg';
 import kristinImg from '../assets/kristin.jpg';
+import familyImg from '../assets/family.jpg';
 
 const CALENDLY_URL = 'https://calendly.com/derek-beitz-soloex/30min';
 const LINKEDIN_DEREK = 'https://www.linkedin.com/in/derekbeitz/';
@@ -31,6 +32,21 @@ const pageDesc = 'Soloex is a Salesforce and HubSpot consultancy founded by Dere
       <p>Women-owned, WBENC certified. The bet is simple: when you hire Soloex, you hire the person who's going to build it. Not a pitch deck. Not a junior handed your project after the closer signs.</p>
 
       <p class="pull">The same person who used to get pulled onto closing calls to provide the confidence that won the business in the first place.</p>
+    </div>
+  </section>
+
+  <section class="section-compact family-section">
+    <div class="container-narrow family-frame">
+      <Picture
+        src={familyImg}
+        alt="Derek and Kristin Beitz with their two daughters"
+        widths={[480, 720, 1080, 1440]}
+        sizes="(max-width: 760px) 100vw, 720px"
+        formats={['avif', 'webp']}
+        loading="lazy"
+        decoding="async"
+        class="family-photo"
+      />
     </div>
   </section>
 
@@ -161,6 +177,21 @@ const pageDesc = 'Soloex is a Salesforce and HubSpot consultancy founded by Dere
   }
 
   .section-header { text-align: center; margin-bottom: 40px; }
+
+  .family-section { padding: 24px 0 64px; }
+  .family-frame {
+    max-width: 720px;
+  }
+  .family-photo {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 14px;
+    box-shadow: 0 12px 40px rgba(5, 26, 43, 0.08);
+    border: 1px solid var(--color-border-soft);
+  }
 
   .team-grid {
     display: grid;
