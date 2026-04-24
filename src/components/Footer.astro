@@ -11,7 +11,9 @@ const APPEXCHANGE_URL = 'https://appexchange.salesforce.com/appxConsultingListin
 <footer class="footer">
   <div class="container-wide footer-main">
     <div class="footer-brand">
-      <Logo />
+      <a href="/" class="footer-brand-link" aria-label="Soloex.io home">
+        <Logo height={52} />
+      </a>
       <p class="footer-tagline">Salesforce and HubSpot consultancy. Women-owned, WBENC certified.</p>
     </div>
 
@@ -92,6 +94,12 @@ const APPEXCHANGE_URL = 'https://appexchange.salesforce.com/appxConsultingListin
   }
 
   .footer-brand { max-width: 300px; }
+
+  .footer-brand-link {
+    display: inline-block;
+    text-decoration: none;
+    border-bottom: none;
+  }
 
   .footer-tagline {
     font-size: 13px;
