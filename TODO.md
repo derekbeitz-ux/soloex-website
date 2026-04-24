@@ -1,92 +1,97 @@
-# Soloex.io — Launch TODO
+# Soloex.io - TODO
 
-Track every placeholder that needs a real value, and every post-launch task that can't ship on day one.
+Launched 2026-04-23. Live at https://soloex.io.
 
----
-
-## Before site handles real traffic
-
-### Cloudflare Web Analytics (cookieless)
-- [ ] In Cloudflare → Analytics & Logs → Web Analytics → Add a site → enter `soloex.io`.
-- [ ] Copy the beacon token Cloudflare shows.
-- [ ] Open `src/layouts/Layout.astro`. Find the commented-out `<script defer src="https://static.cloudflareinsights.com/beacon.min.js" ...>` line and uncomment it. Paste the token where it says `TOKEN`.
-- [ ] Commit and push.
+This file tracks what shipped at launch and what's queued for after. The post-launch list is prioritized: week-one items flagged `[week 1]` unblock revenue or credibility; everything else is "when you have time."
 
 ---
 
-## This week — shipping now without them
+## Done at launch (v1.0)
 
-These are shipping to production without the final piece in place. Swap them in as soon as the missing piece lands.
+### Build
+- [x] Astro 5 scaffold with Tailwind v4, variable fonts (Newsreader + Inter), `@astrojs/sitemap`, design tokens in `src/styles/global.css`
+- [x] Seven pages: Home (13-section structure minus the deferred logo carousel), Services, About, Process, Contact, Privacy, Terms
+- [x] BaseLayout with shared Nav + Footer (LinkedIn, Upwork, AppExchange social icons)
+- [x] Grid SVG background at 8% navy opacity across every page
+- [x] All copy pulled from `docs/03-copy-and-content-bank.md` (source of truth lives in `/docs`)
+- [x] Astro `<Image>` for headshots (WebP, 1x/2x densities, 112px circles, matched treatment)
+- [x] Astro `<Picture>` for family photo (AVIF + WebP + JPG fallback, 4-width srcset, 720px contained frame)
+- [x] Four real project highlights in 2x2 desktop grid on homepage
+- [x] Three Upwork 5-star reviews rendered as initials + role (no fake company names)
 
-### Testimonial attributions (homepage Section 9)
-- File: `src/pages/index.astro`, `testimonials` array.
-- Current state: initials + role only (`— J.M., VP of Operations`, etc.). Quotes are real Upwork 5-star reviews. No fake company names on the page.
-- Missing piece: explicit permission from each of the three reviewers to use their full names + company names publicly.
-- Action: send the request template in `docs/03-copy-and-content-bank.md` §7.4 to each reviewer. Once permission comes back, add `name` and `company` fields to the testimonial objects and update the template to render `— First L., Role, Company`.
+### SEO + accessibility
+- [x] Unique title + meta description per page, OG tags, canonical URLs
+- [x] `sitemap-index.xml` auto-generated, linked from `robots.txt`
+- [x] Semantic HTML, one `<h1>` per page, keyboard focus rings, AA-contrast text, alt text on every image, skip-link
 
----
+### Forms + delivery
+- [x] Web3Forms contact form with live access key, honeypot on, dynamic subject line per submitter, inline thank-you panel, error fallback
+- [x] Contact form tested end to end - delivery confirmed to `derek.beitz@soloex.io`
 
-## Placeholders to replace
+### Infra
+- [x] Git repo at `github.com/derekbeitz-ux/soloex-website`, main-branch auto-deploy
+- [x] Cloudflare Pages connected to the repo, build command `npm run build`, output `dist/`
+- [x] Namecheap nameservers switched to Cloudflare; zone active
+- [x] Both `soloex.io` (apex) and `www.soloex.io` configured as Pages custom domains
+- [x] SSL issued and active (Google Trust Services via Cloudflare)
+- [x] Email records (MX, SPF, DKIM, DMARC) survived the nameserver switch - derek.beitz@ and operations@ confirmed working post-switch
 
-### Footer badges
-- File: `src/components/Footer.astro`.
-- Current: text pills `WBENC certified` and `Salesforce Partner`.
-- Action: download badge SVGs from WBENC and the Salesforce Partner Community, save to `public/badges/wbenc.svg` and `public/badges/salesforce.svg`, swap the text pills for `<img>` tags.
-
----
-
-## Deferred — add post-launch
-
-### Client logo carousel (originally homepage Section 4)
-- The carousel section was removed from the homepage entirely at launch — no placeholder tiles, no stub section.
-- When real logos are ready, rebuild it as a `<LogoCarousel>` component at `src/components/LogoCarousel.astro` that takes an array of image paths + alt text, and drop the files into `public/logos/`.
-- Slot it back into `src/pages/index.astro` between Section 3 (Upwork proof bar) and Section 5 (The Problem), and re-point the hero's "See our work" secondary CTA from `#work` to the carousel's anchor if desired.
-- **Get written permission from each client before their logo goes live.**
+### Brand / voice
+- [x] Em dashes banned site-wide (`docs/01-creative-brief.md` §2.3 codifies the rule)
+- [x] A1 "no public faith references" rule retired in favor of a narrower rule that permits the About page backstory (§1.2)
 
 ---
 
 ## Post-launch follow-ups
 
-### Domain and DNS
-- [ ] Confirm Cloudflare nameservers are active for `soloex.io` (check in Namecheap → Domain List).
-- [ ] Add `www.soloex.io` as a custom domain in Cloudflare Pages (Cloudflare handles the redirect).
-- [ ] Verify HTTPS works on both `https://soloex.io` and `https://www.soloex.io`.
+### This week - flagged `[week 1]`
 
-### Email deliverability
-- [ ] Confirm SPF, DKIM, and DMARC records are set for `soloex.io` in Cloudflare DNS (these should exist already since email is working — just verify Cloudflare imported them).
+These unblock either revenue, credibility, or basic ops hygiene. Worth knocking out in the first seven days.
 
-### SEO
-- [ ] Submit `https://soloex.io/sitemap-index.xml` to Google Search Console.
+- [ ] **`[week 1]` Wire Cloudflare Web Analytics.** The beacon snippet is already staged in `src/layouts/Layout.astro` (commented out). In Cloudflare dashboard -> Analytics & Logs -> Web Analytics -> Add a site -> enter `soloex.io` -> copy the beacon token -> uncomment the script tag in Layout.astro and paste the token where it says `REPLACE_ME`. Commit and push. Without this you're flying blind on traffic.
+- [ ] **`[week 1]` Submit sitemap to Google Search Console.** Verify ownership at https://search.google.com/search-console (the fastest method is a DNS TXT record, which you can add directly in the Cloudflare DNS tab since the zone is now there). Once verified, submit `https://soloex.io/sitemap-index.xml`. Indexing starts within 48 hours.
+- [ ] **`[week 1]` Request testimonial permissions.** Three reviewers on the homepage render as `J.M.`, `S.R.`, `K.T.` - pull their real names from your Upwork contract history and send each the template in `docs/03-copy-and-content-bank.md` §7.4. Once you have written permission, add `name` and `company` fields to the `testimonials` array in `src/pages/index.astro` and update the render template. Full-name testimonials convert significantly better than initials.
+- [ ] **`[week 1]` Announce the launch on LinkedIn.** Post from both the Soloex company page and your personal profile. Include the soloex.io URL. You're losing reach for every day this sits.
+- [ ] **`[week 1]` Add `soloex.io` to your email signature** and update the Upwork profile's portfolio link.
+
+### Content + credibility (next 30 days)
+
+- [ ] **Rebuild the client logo carousel.** Removed at launch since real logos needed written permission. When 8-10 clients have granted use of their logos, create `src/components/LogoCarousel.astro` that takes an array of `{ src, alt }`, drop the logo files into `public/logos/`, and slot the section back into `src/pages/index.astro` between Section 3 (Upwork bar) and Section 5 (Problem). Re-point the hero's `See our work` button from `#work` to the carousel anchor if you want it to jump there instead.
+- [ ] **Project case studies.** The homepage has four one-sentence project highlights. Each could become a proper case study: situation, what you did, outcome, quote. If two of the four clients are willing, a `/work` page with two case studies would meaningfully upgrade the credibility story.
+- [ ] **Paired founder photoshoot.** Derek's headshot is outdoor, Kristin's is studio. They read as a pair because we applied identical treatment (same circle, same ring, same crop framing) - but if you get one shoot together in similar lighting, it'll read sharper. Once the files are ready, drop them into `src/assets/` with the same filenames and the site picks them up automatically.
+- [ ] **HubSpot Partner badge** in the footer once your HubSpot partner status is live. Currently only WBENC and Salesforce Partner pills show.
+- [ ] **Real WBENC and Salesforce Partner badge SVGs** (footer currently uses text pills). Download from each partner portal, save to `public/badges/`, swap into `src/components/Footer.astro`.
+- [ ] **AppExchange badge graphic** once the listing moves out of `pending`. URL is already wired - just swap the footer icon for the real AppExchange badge when available.
+
+### SEO + growth (ongoing)
+
 - [ ] Add `soloex.io` to Bing Webmaster Tools.
-- [ ] Double-check meta descriptions are unique per page (they are at launch — keep it that way as pages are added).
+- [ ] Consider a `/resources` page once you have a lead magnet (CRM audit template, migration readiness checklist, or similar).
+- [ ] Contact-page FAQ accordion for common qualifying questions ("fixed bid vs retainer?", "do you work internationally?", "do you take on full implementations or only migrations?").
 
-### AppExchange listing
-- Current AppExchange URL is wired into the footer. Once the listing moves out of "pending" status, verify the URL still works and update the footer badge with the real AppExchange badge image.
+### Brand polish (when the mood strikes)
 
-### Automotive Cloud beta
-- Surfaced as a pill on the homepage Platforms section. If the status changes (beta ends, named participant), update the copy in `src/pages/index.astro` and `src/pages/services.astro`.
+- [ ] Replace the text wordmark in `src/components/Logo.astro` with the actual Soloex wordmark SVG if/when one is designed.
+- [ ] WBENC footer badge -> link to Soloex's public WBENC profile page on `wbenc.org` once that URL is live.
+- [ ] `<link rel="preload">` for the hero fonts if Core Web Vitals show LCP pressure in Cloudflare Analytics.
+- [ ] Canonical `www` -> apex redirect via Cloudflare Page Rule. Currently both `soloex.io` and `www.soloex.io` serve the site directly. Not broken, just not canonical.
 
-### WBENC public profile link
-- Consider linking the WBENC footer badge to Soloex's public profile page on `wbenc.org` once it's live.
+### Monitoring + maintenance (set and forget)
 
-### Newsletter (not at launch)
-- If a newsletter is added later, use a reputable tool that handles unsubscribes automatically (Buttondown, Mailchimp, ConvertKit). Do not add contact-form submitters to a bulk list without a clearer, separate opt-in.
-
----
-
-## Iteration candidates (optional polish)
-
-- [ ] Real client case-study page once 3+ projects have written permission.
-- [ ] Resources / lead-magnet section (audit template, CRM readiness checklist).
-- [ ] Add HubSpot Partner badge to footer once status is live.
-- [ ] Replace the text wordmark in `Logo.astro` with the actual Soloex wordmark file if/when provided.
-- [ ] Consider adding a FAQ accordion to the Contact page for common questions ("do you take fixed bids?", "do you work on retainer?", etc.).
-- [ ] Add `<link rel="preload">` for hero fonts if Core Web Vitals show LCP pressure.
+- [ ] Bump Astro and dependencies monthly (`npm update`, commit the lockfile, push). Cloudflare builds will fail loudly if anything breaks.
+- [ ] Check Cloudflare Web Analytics monthly for traffic shape; use it to sharpen copy and CTAs on pages that are underperforming.
+- [ ] Review testimonials and project highlights annually for continued accuracy (clients change roles, companies merge, metrics go stale).
+- [ ] If a newsletter gets added later, use a reputable tool that handles unsubscribes automatically (Buttondown, Mailchimp, ConvertKit). Do not move contact-form submitters to a bulk list without a separate opt-in.
+- [ ] Check Core Web Vitals every quarter in PageSpeed Insights. Current build is lean but images are the biggest payload - watch as case studies get added.
 
 ---
 
-## Routine maintenance
+## Not doing (deliberate no at launch)
 
-- Bump Astro and dependencies monthly (`npm update`).
-- Check Cloudflare Web Analytics quarterly for traffic shape; adjust copy and CTAs accordingly.
-- Review every testimonial / project highlight annually for continued accuracy.
+Listed here so future-Derek (or future-Claude) doesn't treat them as oversights:
+
+- **Dark mode.** Brand is light-theme by design (creative brief §3.1).
+- **Cookie banner.** Cloudflare Web Analytics is cookieless; no other trackers. Not legally required.
+- **Blog / CMS.** Astro can gain a content collection later if blogging becomes strategic. Not at launch.
+- **Newsletter signup in footer.** Deferred per creative brief §11.2 until there's actually a newsletter to sign up for.
+- **Instagram, Twitter/X, YouTube icons.** No active accounts yet. Add when there's a reason to.

@@ -125,7 +125,7 @@ The site auto-deploys to Cloudflare Pages on push to `main`. Build command: `npm
 
 Every commit to main triggers a fresh build in ~60-90 seconds. The Cloudflare Pages project UI at dash.cloudflare.com shows build logs. If a build fails, check the log - it's almost always a missing asset or a typo in frontmatter.
 
-Domain: `soloex.io` via Namecheap, pointed at Cloudflare nameservers. `www.soloex.io` redirects to apex.
+Domain: `soloex.io` via Namecheap, pointed at Cloudflare nameservers. Both `soloex.io` (apex) and `www.soloex.io` are configured as custom domains on the Pages project and serve the site directly. (No `www` -> apex redirect is configured yet; both hostnames serve identical content. If canonical consolidation matters later, add a Cloudflare Page Rule: `www.soloex.io/*` -> 301 -> `https://soloex.io/$1`.)
 
 Never commit directly from Claude to production without a clear "ship it" from Derek. Never push to main with an unconfirmed change to copy, pricing, or legal pages.
 
@@ -144,3 +144,26 @@ Never commit directly from Claude to production without a clear "ship it" from D
 ## 8. Known pending items
 
 Tracked in `TODO.md` at the project root. Keep that file current when you finish an item or add a new one.
+
+---
+
+## 9. Version history
+
+### 2026-04-23 - Launch (v1.0)
+Live on `https://soloex.io`. Stack as described above. Shipped with:
+
+- Homepage, Services, About, Process, Contact, Privacy, Terms (7 pages)
+- Real headshots for Derek and Kristin, family photo on About (Astro optimized, AVIF/WebP, responsive srcset)
+- Four real project highlights in a 2x2 grid on the homepage
+- Three verified Upwork 5-star reviews rendered as initials + role (full names pending reviewer permission)
+- Web3Forms-powered contact form routing to `derek.beitz@soloex.io` with dynamic email subject per submitter and inline thank-you panel
+- Cloudflare Pages auto-deploy from `main`
+- `@astrojs/sitemap`, `robots.txt`, OG image, SEO meta on every page
+- Em-dash ban enforced across all rendered copy (typographic: regular hyphens only)
+- About page prose includes the founders' personal backstory; A1 "no public faith references" rule retired in favor of a narrower rule documented in `docs/01-creative-brief.md` §1.2
+
+### Launch-day deliberate exclusions
+- Client logo carousel (homepage Section 4) - will rebuild as a component when real logos + permission land
+- Full-name testimonial attribution - shipped with initials pending reviewer permission
+- Cloudflare Web Analytics beacon - snippet staged in `src/layouts/Layout.astro`, token pending
+- WBENC and Salesforce Partner badge graphics - footer uses text pills until SVGs are in hand
