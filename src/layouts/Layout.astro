@@ -60,6 +60,22 @@ const ogImage = new URL('/soloex-favicon-512.png', site).toString();
 
     <!-- Cloudflare Web Analytics (cookieless) - paste the beacon token from Cloudflare → Analytics & Logs → Web Analytics. -->
     <!-- <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "REPLACE_ME"}'></script> -->
+
+    <!-- Pardot / Account Engagement tracking -->
+    <script is:inline type="text/javascript">
+      piAId = '1128413';
+      piCId = '';
+      piHostname = 'go.soloex.io';
+      (function() {
+        function async_load(){
+          var s = document.createElement('script'); s.type = 'text/javascript';
+          s.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + piHostname + '/pd.js';
+          var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
+        }
+        if(window.attachEvent) { window.attachEvent('onload', async_load); }
+        else { window.addEventListener('load', async_load, false); }
+      })();
+    </script>
   </head>
   <body>
     <a href="#main" class="skip-link">Skip to content</a>
