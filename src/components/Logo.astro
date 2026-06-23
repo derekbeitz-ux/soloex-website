@@ -1,31 +1,37 @@
 ---
-import { Image } from 'astro:assets';
-import logoImg from '../assets/soloex-logo-for-light-bg.png';
+import MarkSvg from '../assets/soloex-mark.svg';
 
 interface Props {
   height?: number;
   class?: string;
 }
 
-const { height = 40, class: className = '' } = Astro.props;
-const width = Math.round((height * logoImg.width) / logoImg.height);
+const { height = 36, class: className = '' } = Astro.props;
 ---
 
-<Image
-  src={logoImg}
-  alt="Soloex.io"
-  width={width}
-  height={height}
-  densities={[1, 2]}
-  loading="eager"
-  decoding="async"
-  class={`logo-img ${className}`}
-/>
+<span class={`logo ${className}`} style={`--logo-h: ${height}px;`}>
+  <MarkSvg class="logo-mark" width={height} height={height} aria-hidden="true" />
+  <span class="logo-word">Soloex.io</span>
+</span>
 
 <style>
-  .logo-img {
+  .logo {
+    display: inline-flex;
+    align-items: center;
+    gap: calc(var(--logo-h) * 0.26);
+    line-height: 1;
+  }
+  .logo-mark {
     display: block;
-    height: auto;
-    max-width: 100%;
+    width: var(--logo-h);
+    height: var(--logo-h);
+    flex-shrink: 0;
+  }
+  .logo-word {
+    font-family: var(--font-serif);
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    color: var(--color-ink-900);
+    font-size: calc(var(--logo-h) * 0.74);
   }
 </style>
