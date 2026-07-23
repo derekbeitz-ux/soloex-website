@@ -6,6 +6,9 @@ const year = new Date().getFullYear();
 const LINKEDIN_URL = 'https://www.linkedin.com/company/soloex-io/';
 const UPWORK_URL = 'https://www.upwork.com/freelancers/~01a68484f6725225f8';
 const APPEXCHANGE_URL = 'https://appexchange.salesforce.com/appxConsultingListingDetail?listingId=e53f67f8-98b6-4bb3-b7ff-b6e204de0b14&legacy=true';
+
+// Team credential vault (SOLOEX 2FA). Update this once the vault app is deployed.
+const SIGNIN_URL = 'https://vault.soloex.io';
 ---
 
 <footer class="footer">
@@ -69,6 +72,8 @@ const APPEXCHANGE_URL = 'https://appexchange.salesforce.com/appxConsultingListin
       <a href="/privacy">Privacy</a>
       <span class="separator">·</span>
       <a href="/terms">Terms</a>
+      <span class="separator">·</span>
+      <a href={SIGNIN_URL} class="footer-signin">Sign In</a>
     </div>
     <div class="footer-badges">
       <!-- Swap these text pills for real WBENC + Salesforce Partner badge SVGs when available. -->
@@ -181,6 +186,14 @@ const APPEXCHANGE_URL = 'https://appexchange.salesforce.com/appxConsultingListin
   .separator {
     margin: 0 8px;
     color: var(--color-text-tertiary);
+  }
+
+  .footer-legal a.footer-signin {
+    color: var(--color-ink-700);
+    font-weight: 500;
+  }
+  .footer-legal a.footer-signin:hover {
+    text-decoration: underline;
   }
 
   .footer-badges {
